@@ -1,6 +1,6 @@
 ---
 title: 一、电子学基础
-description: 《电子学》（英文原著《The Art of Electronics》）第一章。
+description: 《电子学》(英文原著《The Art of Electronics》)第一章。
 ---
 import { Tabs, TabItem } from '@astrojs/starlight/components';
 import { Card, CardGrid } from '@astrojs/starlight/components';
@@ -34,20 +34,14 @@ import { Card, CardGrid } from '@astrojs/starlight/components';
   </TabItem>
 </Tabs>
 ---
+
 ### 1.2.3 分压器
 
 <img src="https://raw.githubusercontent.com/maindraster/maindraster.github.io/main/src/assets/images/1.png" width="150" style="margin: auto"/>
 
-<Tabs>
-  <TabItem label="电流公式">
-    ```math
-I=\frac{V_{in}}{R_1+R_2}
-```
-  </TabItem>
-  <TabItem label="分压公式">
-    $$V_{out}=IR_2=\frac{R_2}{R_1+R_2}V_{in}$$
-  </TabItem>
-</Tabs>
+<center> $I=\frac{V_{in}}{R_1+R_2}$ </center>
+
+<center> $$V_{out}=IR_2=\frac{R_2}{R_1+R_2}V_{in}$$ </center>
 
 分压器常用于从一个较大且固定的(或变化的 )电压中产生一个特定的电压值。
 
@@ -57,7 +51,7 @@ I=\frac{V_{in}}{R_1+R_2}
 
 一个理想的电流源也是一个二端黑匣子。不管所接的负载电阻与所加的电压如何，总保证电路输出一个恒定的电流。为了达到这一点, 电流源两端必须能够输出所需的任何电压。现实中的电流源总有一个输出电压的限定值，又称**容量**。
 
-一个电池可视为是对电压源的实际近似（而对电流源则无近似）。
+一个电池可视为是对电压源的实际近似(而对电流源则无近似)。
 
 <details>
 <summary>万用表</summary>
@@ -67,27 +61,27 @@ I=\frac{V_{in}}{R_1+R_2}
 
 ### 1.2.5 戴维南等效电路
 
-戴维南定理指出，任何一个具有电阻与电压源连接的二端口网络可以等效成一个电阻R与一个电压源Y串联的电路。这是一个非常重要的定理。 任何一个含有多个电源与电阻的复杂网络可以用只含有一个等效电压源与一个等效电阻串联的电路来等效模拟（还有另一个定理，即诺顿定理。它指出类似的情形，可用只含有一个等效电流源与一个等效电阻并联的电路来模拟）。
+戴维南定理指出，任何一个具有电阻与电压源连接的二端口网络可以等效成一个电阻R与一个电压源Y串联的电路。这是一个非常重要的定理。 任何一个含有多个电源与电阻的复杂网络可以用只含有一个等效电压源与一个等效电阻串联的电路来等效模拟(还有另一个定理，即诺顿定理。它指出类似的情形，可用只含有一个等效电流源与一个等效电阻并联的电路来模拟)。
 
-> $$\quad V_{Th}=V_{开路电压}$$
->
-> $$\quad R_{Th}=V_{开路电压}/I_{短路电流}$$
+<center> $$V_{Th}=V_{开路电压}$$ </center>
+
+<center>$$R_{Th}=V_{开路电压}/I_{短路电流}$$</center>
 
 如果用于分压电路，则有：
 
-> $\quad V_{开路电压}=V_{in}\frac{R_2}{R_1+R_2}$
->
-> $\quad I_{短路电流}=\frac{V_{in}}{R_1}$
+<center> $V_{开路电压}=V_{in}\frac{R_2}{R_1+R_2}$ </center>
+
+<center> $\quad I_{短路电流}=\frac{V_{in}}{R_1}$ </center>
 
 因此，戴维南等效电路是一个电压源：
 
-> $\quad V_{Th}=V_{in}\frac{R_2}{R_1+R_2}$
->
-> $\quad R_{Th}=\frac{R_1R_2}{R_1+R_2}$
+<center> $V_{Th}=V_{in}\frac{R_2}{R_1+R_2}$ </center>
 
-一个分压器不是一个很好的电压源，因为它的输出电压随负载接入而严重下降。要解决这个问题，可以在分压电路中采用较小的电阻，但通常最好还是采用晶体管或运算放大器等有源器件构造（第2~4章讨论）。这种方法很容易构成内阻仅为毫欧极的电压源，而且方便调整输出电压。
+<center> $R_{Th}=\frac{R_1R_2}{R_1+R_2}$ </center>
 
-**电路加载效应**：信号源外接负载的阻值较小导致开路电压（或信号）下降的现象，应当尽力使**_负载电阻远大于等效内阻_**。
+一个分压器不是一个很好的电压源，因为它的输出电压随负载接入而严重下降。要解决这个问题，可以在分压电路中采用较小的电阻，但通常最好还是采用晶体管或运算放大器等有源器件构造(第2~4章讨论)。这种方法很容易构成内阻仅为毫欧极的电压源，而且方便调整输出电压。
+
+**电路加载效应**：信号源外接负载的阻值较小导致开路电压(或信号)下降的现象，应当尽力使**_负载电阻远大于等效内阻_**。
 
 
 ### 1.2.6 小信号电阻
@@ -97,17 +91,231 @@ I=\frac{V_{in}}{R_1+R_2}
 
 #### 齐纳二极管
 
-<img src="https://raw.githubusercontent.com/maindraster/maindraster.github.io/main/src/assets/images/2.png" width="150" style="margin: auto"/>
+<img src="https://raw.githubusercontent.com/maindraster/maindraster.github.io/main/src/assets/images/2.png" width="200" style="margin: auto"/>
 
 电流变化较大时，电压变化相对小，可以电压不变，动态阻值依据电流而定。
 
 #### 隧道二极管
 
-<img src="https://raw.githubusercontent.com/maindraster/maindraster.github.io/main/src/assets/images/3.png" style="margin: auto"/>
+<img src="https://raw.githubusercontent.com/maindraster/maindraster.github.io/main/src/assets/images/3.png" width="530" style="margin: auto"/>
 
-隧道二极管又称为江崎二极管，其有一个负增量电阻。一个由电阻和隧道二极管组成的 分压器其实是一个**放大电路**（上右图）。
+隧道二极管又称为江崎二极管，其有一个负增量电阻。一个由电阻和隧道二极管组成的 分压器其实是一个**放大电路**(上右图)。
 
 ## 1.3 信号
 
+### 1.3.1 正弦信号
+
+正弦信号恰好是描述自然界许多现象以及**线性电路特性**的微分方程的解。线性电路特性可以用如下式子表示：
+
+<center>$O(A+B)=O(A)+O(B)$</center>
+
+正弦波激励的线性电路总输出一个正弦波响应，但相位和振幅一般会变化。
+
+**频率响应**：用于描述电路的特性，指[增益随频率的变化曲线](https://baike.baidu.com/item/%E9%A2%91%E7%8E%87%E5%93%8D%E5%BA%94/1545234?fr=ge_ala)。原文 _“电路使输出正弦波的幅度特性随输入正弦波频率的函数关系而改变”_。
+
+:::note[关于信号频率]
+- 一个高度保真的放大器应当具有一个至少在20Hz~20kHz频率范围内的“平坦”的频率响应。
+
+- 我们通常处理从几赫兹到几兆赫兹的正弦频率信号。更高频率的信号涉及到微波技术，惯用的导线电路不再适用，取而代之的是较不稳定的[波导](https://baike.baidu.com/item/%E6%B3%A2%E5%AF%BC/1224480?fr=ge_ala)或[微波传输线](https://www.elecfans.com/d/2333328.html)。
+:::
+
+### 1.3.2 信号幅度与分贝
+
+描述正弦波的幅度有三种方法：
+- 幅度(用A表示)
+- 峰-峰值(用pp表示)：2倍幅度值
+- 均方根值(用rms表示)：仅对正弦波有0.707A的关系，用于计算功率。
+
+#### 分贝
+
+比较信号幅度，因为信号之间可能有上百万倍的大比值，幅度值相除不便，采用对数则较简单。定义分贝：
+
+<center>$dB=20lg\frac{A_2}{A_1}$</center>
+
+也可以用信号功率表示(不限于正弦，是另一种定义式)：
+
+<center>$dB=10lg\frac{P_2}{P_1}$</center>
+
+若 A2 幅度为 A2 两倍，则对应分贝数 6dB；若是 A2 是 A1 的十倍，则为+20dB。相反则为负。
+
+尽管分贝数用于规定两信号的比值，但有时也用做对幅度的绝对衡量。例如，[dBV、dBm](https://www.zhihu.com/question/20349736/answer/3245448532)、[dB SPL](https://blog.csdn.net/GUMU12345/article/details/135240337)、dBrnC等。用这些方式表示幅度时都需要有一个参考量，计算绝对分贝数时，就将**相应的参数的值与参考量之比代替幅度比值**。
+
+### 1.3.3 其他信号
+
+<img src="https://raw.githubusercontent.com/maindraster/maindraster.github.io/main/src/assets/images/4.png" width="680" style="margin: auto"/>
+
+**噪声**：常源于热随机噪声。电压特性可以用他的功率谱密度(每赫兹是哪个的功率)或它的振幅分布来描述。一种常见的噪声是**带限高斯白噪声**，它的功率谱密度函数在某一频率范围内是相等的，且对噪声电压的振幅进行大量即时测量时，振幅满足高斯分布。这种噪声是由电阻产生的([Johnson噪声](https://baike.baidu.com/item/%E7%BA%A6%E7%BF%B0%E9%80%8A%EF%BC%8D%E5%A5%88%E5%A5%8E%E6%96%AF%E7%89%B9%E5%99%AA%E5%A3%B0/22800983?fr=ge_ala))。
+
+**方波**：上升时间在几纳秒到几毫秒之间，上升时间定义为信号的总过渡转换量的10%~90%之间的时间。
+
+<img src="https://raw.githubusercontent.com/maindraster/maindraster.github.io/main/src/assets/images/5.png" width="560" style="margin: auto"/>
+
+**脉冲**：由脉冲振幅和脉冲宽度定义。对一系列均匀间隔的脉冲串，我们定义**占空比**为脉冲宽度与周期之比(0~100%)。书中定义与[百度-脉冲](https://baike.baidu.com/item/%E8%84%89%E5%86%B2%E6%B3%A2/2730791?fr=ge_ala)有所不同。
+
+### 1.3.4 逻辑电平
+
+只关心区别高低状态的门限电平。
+
+### 1.3.5 信号源
+
+#### 信号发生器
+
+信号发生器就是正弦波振荡器，它通常给出一个宽频率范围内的信号(典型输出范围为50 kHz~ 50 MHz )，并且有精确的幅度控制装置 ( 通常采用一个称为衰减器的电阻分压器 )。信号发生器还可用来调节输出 (参见第13章)。
+
+:::note[扫频仪和信号发生器的区别]
+[扫频仪](https://baike.baidu.com/item/%E6%89%AB%E9%A2%91%E4%BB%AA?fromModule=lemma_search-box)产生的信号会随着时间的推移而改变频率，它能够测试无线电器件以检测它们对不同频率的响应。而信号发生器则主要产生单一频率或多个固定频率的信号，用于测试或校准各种类型的电子设备。
+:::
+
+信号发生器的另一种变化形式是频率合成器。这种装置能产生频率被精确设置的正弦波信号。频率的设置是数字化的,常常是8位数字或更多，并按照一个精确的标准(石英晶体振荡器)根据9.5中的数字方法进行合成。如果要更精确的，需要利用频率合成器。
+
+#### 脉冲发生器
+
+只产生脉冲信号，宽度、频率、振幅、极性和上升时间等可调。有可编程系列。
+
+#### 函数发生器
+
+最灵活的信号源，可得到正弦波、三角波与方波函数，典型频率范围是0.01Hz~10MHz。它们也可以用于脉冲输出，并且有一些还有调制装置。有可编程系列。
+
+## 1.4 电容和交流电路
+
+### 1.4.1 电容
+
+<Card title="电容">
+  浅层理解：电容是一个依赖频率的电阻元件，这样就可以构成一个依赖频率的分压电路。在旁路、耦合等应用场合就要用到这一点。
+  
+  更深层：电压和电流是正交的(90°相位差)，所以电容不会损耗功率。与电容电流有关的功率没有转化为热量，而是存储在电容内部电场中。
+  
+  电容的基本结构就是两块道题相互接近，但不触碰。一般地，陶瓷与聚酯薄膜类用于大多数不太重要的电路中; 钽电容用于需要较大电容量的场合, 而电解质电容则用于电源滤波的场合。
+
+  <details>
+  <summary>电容类型总结表</summary>
+  该表仅为简要比较，有一定主观性。
+  ![电容总结表](../../../../assets/images/6.png)
+  </details>
+</Card>
+
+<Tabs>
+  <TabItem label="电容定义式">
+    $Q=CV$
+  </TabItem>
+  <TabItem label="推导式">
+    $I=C\frac{dV}{dt}$
+  </TabItem>
+  <TabItem label="电容并联">
+    $C_{total}=C_1+C_2+C_3+…$
+  </TabItem>
+  <TabItem label="电容串联">
+    $C_{total}=\frac{1}{\frac{1}{C_1}+\frac{1}{C_2}+\frac{1}{C_3}+…}$
+  </TabItem>
+</Tabs>
+---
+
+#### 1.4.2 RC电路：随时间变化的V与I
+
+简单RC电路得到：
+
+<center>$C\frac{dV}{dt}=I=-\frac{V}{R}$</center>
+
+该微分方程的解为：
+
+<center>$V=Ae^{-t/RC}$</center>
+
+<img src="https://raw.githubusercontent.com/maindraster/maindraster.github.io/main/src/assets/images/7.png" width="560" style="margin: auto"/>
+
+**时间常数**：t=RC。
+
+**5RC经验准则**：在5倍时间常数内，一个电容充电或放点至最终值的1%以内。
+
+对于任意的输入电压，输出电压是什么？
+
+<center>$V(t)=\frac{1}{RC}\int_{-\infty}^tV_i(\tau)e^{-(t-\tau)/RC}d\tau$</center>
+
+RC电路用一个加权因子对过去的输入求平均。
+
+:::tip[设计：延时电路]
+CMOS缓冲器在输入是“高电平”的情况下输出“高电平”(它通常高于供给电路的直流电压的一半); 反之，输入为“低电平“，则输出也为“低电平”。 前面的缓冲器提供一个与输入信号完全相同的信号, 但具有较低的源输出内阻，以防止由RC电路引起的输入加载。
+
+图中10ms是依据RC电路在0.7RC时间内即可达到70%的输出。但该延时电路不建议大量使用。
+
+<img src="https://raw.githubusercontent.com/maindraster/maindraster.github.io/main/src/assets/images/8.png" width="400" style="margin: auto"/>
+:::
+
+### 1.4.3 微分器
+
+<img src="https://raw.githubusercontent.com/maindraster/maindraster.github.io/main/src/assets/images/9.png" width="530" style="margin: auto"/>
+
+<center>$I=C\frac{d}{dt}(V_{in}-V)=\frac{V}{R}$</center>
+
+令RC足够小，则有
+
+<center>$V(t)=RC\frac{d}{dt}V_{in}(t),\ (dV/dt<<dV_{in}/dt)$</center>
+
+微分器可以很好地检测脉冲信号的**前沿**和**后沿**。
+
+:::caution[故障：不需要的容性耦合]
+<img src="https://raw.githubusercontent.com/maindraster/maindraster.github.io/main/src/assets/images/10.png" width="150" style="margin: auto"/>
+- 第一种情况是一个方波在电容某处被容性耦合至我们关心的信号通路上造成的。这意味着这个信号通路上缺少一个电阻负载。
+- 第二种情况是遇到一个方波输入，但在电路某处断开，通常是示波器探头断开，中断处的小电容与示波器的输入电阻相结合构成一个微分电路。
+:::
+
+### 1.4.4 积分器
+
+<img src="https://raw.githubusercontent.com/maindraster/maindraster.github.io/main/src/assets/images/11.png" width="160" style="margin: auto"/>
+
+<center>$I=C\frac{dV}{dt}=\frac{(V_{in}-V)}{R}$</center>
+
+通过让RC乘积较大，来得到：
+
+<center>$V(t)=\frac{1}{RC}\int_0^tV_{in}(t)dt+C,\ (V<<V_{in})$</center>
+
+当研究运算放大器与反馈时，可以不受公式括号内条件的限制来构造积分器,它们可以在宽频率与大电压范围内以很小的误差进行工作。
+
+积分器已被广泛地运用于模拟计算中。作为一种有用的电子电路，它也在反馈控制系统、模/数转换与波形产生等方面有着重要的应用。
+
+:::tip[设计：斜坡发生器]
+
+用一个恒流源对电容充电即可产生一个斜坡电压波形。
+
+<center>$V(t)=(I/C)t$</center>
+:::
+
+## 1.5 电感与变压器
+
+### 1.5.1 电感
+
+<Card title="电感">
+电感中的电流变化取决于它两端所加的电压。在电感两端加一电压会引起电流以斜坡函数的形式上升。[(对于电容则相反)](./#144-积分器)
+
+与电感电流有关的功率没有转化为热量，仍然以能量的形式存储在电感的磁场中。
+
+**电感在射频电路中用途最多。**它作为射频扼流圈成为调谐电路的一部分(参见第13章)，而一对紧密耦合的电感又可构成非常有用的变压器。
+
+公式：
+<center>$V=L\frac{dI}{dt}$</center>
+
+</Card>
+
+### 1.5.2 变压器
+
+[变压器](https://baike.baidu.com/item/%E5%8F%98%E5%8E%8B%E5%99%A8/565082?fr=ge_ala)是一种包含两个紧密耦合线圈的装置,这两个线圈分别称为初级与次级。在其初级加一交流电压, 会引起次级电压出现。次级电压以变压器匝数比的倍数 (正比) 增加，而对应的次级电流则与匝数比的倍数成反比。匝数比将次级的阻抗变换至初级并呈 n<sup>2</sup> 倍出现。
+
+**两个用途：改变电压和电流到有用的值；将电子设备与电源线的链接进行隔离。**
+
+变压器还可以用于音频和射频场合。一般用于高频场合的变压器要用特殊的磁芯材料或结构来减小对信号传输的损失。
+
+## 1.6 阻抗与电抗
+
+电容和电感都是线性元件。线性有一重要特性为，**由某个频率 f 的正弦波激励的线性电路的输出本身也是同频率的正弦波 (至多改变了其幅度与相位)**。
+
+利用该特性，我们可绘制出针对某一电路的**频率响应图**，其反映每一频率的正弦波的输出与输入之比。以某一放大器的扬声器举例，我们希望它具有平坦的响应特性，即关于频率的声压图形在音频频带范围内是一个常数，则可以将一个具有逆响应的无源滤波器用于音频放大器中，以弥补缺陷。
+
+<img src="https://raw.githubusercontent.com/maindraster/maindraster.github.io/main/src/assets/images/12.png" width="500" style="margin: auto"/>
+
+我们可以推广电阻的概念到“阻抗”，阻抗 = 电阻 + 电抗 (电容和电感具有的)。对由复杂波形激励的电路进行分析涉及到微分方程或将复杂波形分解为正弦波分量的傅里叶分析法。以下的讨论只考虑由单一正弦波激励的电路。
+
+### 1.6.1 电抗电路的频率分析
+
 
 <p>Read more <a href="../../../guides/example/">about</a> Astro!</p>
+
+<img src="https://raw.githubusercontent.com/maindraster/maindraster.github.io/main/src/assets/images/11.png" width="160" style="margin: auto"/>
