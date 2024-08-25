@@ -14,5 +14,3 @@ description: 电子电路设计部分自学前言导读。
         margin: auto;
     }
 </style>
-
-<img src="/src/assets/images/r.png" width="250" style="margin: auto"/>
