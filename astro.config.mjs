@@ -1,8 +1,9 @@
 import { defineConfig } from 'astro/config';
 import starlight from '@astrojs/starlight';
 import starlightImageZoom from 'starlight-image-zoom';
+
 import remarkMath from "remark-math"
-import rehypeKatex from "rehype-katex"
+import rehypeMathjax from 'rehype-mathjax'
 
 // https://astro.build/config
 export default defineConfig({
@@ -11,7 +12,13 @@ export default defineConfig({
 	integrations: [
 		starlight({
 			plugins: [starlightImageZoom()],
-			title: 'Learning Docs',
+			title: 'My Docs',
+			locales: {
+				root: {
+				  label: '简体中文',
+				  lang: 'zh-CN',
+				},
+			},
 			social: {
 				github: 'https://github.com/withastro/starlight',
 			},
@@ -43,6 +50,6 @@ export default defineConfig({
 	markdown: {
 		// 应用于 .md 和 .mdx 文件
 		remarkPlugins: [remarkMath],
-		rehypePlugins: [rehypeKatex],
+		rehypePlugins: [rehypeMathjax],
 	},
 });
