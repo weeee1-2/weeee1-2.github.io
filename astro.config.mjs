@@ -4,6 +4,7 @@ import starlightImageZoom from 'starlight-image-zoom';
 
 import remarkMath from "remark-math"
 import rehypeMathjax from 'rehype-mathjax'
+import remarkEmbedImages from 'remark-embed-images'
 
 // https://astro.build/config
 export default defineConfig({
@@ -50,6 +51,6 @@ export default defineConfig({
 	markdown: {
 		// 应用于 .md 和 .mdx 文件
 		remarkPlugins: [remarkMath],
-		rehypePlugins: [rehypeMathjax],
+		rehypePlugins: [rehypeMathjax,remarkEmbedImages],
 	},
 });

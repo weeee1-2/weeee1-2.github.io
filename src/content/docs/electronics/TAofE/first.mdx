@@ -36,15 +36,7 @@ import { Card, CardGrid } from '@astrojs/starlight/components';
 ---
 ### 1.2.3 分压器
 
-![aaa](../../../assets/images/r.png)
-
-<style>
-    img[alt="aaa"]{
-        width:350px;
-        border: 2px solid black;
-        margin: auto;
-    }
-</style>
+<img src="https://raw.githubusercontent.com/maindraster/maindraster.github.io/main/src/assets/images/1.png" width="150" style="margin: auto"/>
 
 <Tabs>
   <TabItem label="电流公式">
@@ -77,28 +69,45 @@ I=\frac{V_{in}}{R_1+R_2}
 
 戴维南定理指出，任何一个具有电阻与电压源连接的二端口网络可以等效成一个电阻R与一个电压源Y串联的电路。这是一个非常重要的定理。 任何一个含有多个电源与电阻的复杂网络可以用只含有一个等效电压源与一个等效电阻串联的电路来等效模拟（还有另一个定理，即诺顿定理。它指出类似的情形，可用只含有一个等效电流源与一个等效电阻并联的电路来模拟）。
 
-$$V_{Th}=V(开路电压)$$
-
-$$R_{Th}=V(开路电压)/I(短路电流)$$
+> $$\quad V_{Th}=V_{开路电压}$$
+>
+> $$\quad R_{Th}=V_{开路电压}/I_{短路电流}$$
 
 如果用于分压电路，则有：
 
-> $V(开路电压)=V_{in}\frac{R_2}{R_1+R_2}$
+> $\quad V_{开路电压}=V_{in}\frac{R_2}{R_1+R_2}$
 >
-> $I(短路电流)=\frac{V_{in}}{R_1}$
+> $\quad I_{短路电流}=\frac{V_{in}}{R_1}$
 
 因此，戴维南等效电路是一个电压源：
 
-> $V_{Th}=V_{in}\frac{R_2}{R_1+R_2}$
+> $\quad V_{Th}=V_{in}\frac{R_2}{R_1+R_2}$
 >
-> $R_{Th}=\frac{R_1R_2}{R_1+R_2}$
+> $\quad R_{Th}=\frac{R_1R_2}{R_1+R_2}$
 
 一个分压器不是一个很好的电压源，因为它的输出电压随负载接入而严重下降。要解决这个问题，可以在分压电路中采用较小的电阻，但通常最好还是采用晶体管或运算放大器等有源器件构造（第2~4章讨论）。这种方法很容易构成内阻仅为毫欧极的电压源，而且方便调整输出电压。
 
-**电路加载效应**：信号源外接负载的阻值较小导致开路电压（或信号）下降的现象，
+**电路加载效应**：信号源外接负载的阻值较小导致开路电压（或信号）下降的现象，应当尽力使**_负载电阻远大于等效内阻_**。
 
-weis<code class="math-display">R_1</code>???<code class="math-display">$R_1$</code>
 
-应当使 \\(R_1\\)
+### 1.2.6 小信号电阻
+
+有这样一类电子器件，流经它的电流 I 并不与其两端电压 V 成比例。在这类情
+况中, 由于比值 V/I 取决于 V，而不是一个独立于 V 的常数值，因此没有多大必要再去谈论电阻值。然而，对于这些器件的分析通常是了解它们的 V-I 曲线的斜率，即一个器件上所加电压的微小变化与流过该器件上的电流的微小变化之比: **dV/dI** 。这种定义具有电阻的量纲 (Ω)，并且在许多相应计算中取代了电阻的含义。这类器件又称为**小信号电阻**、**增量电阻**或**动态电阻**。
+
+#### 齐纳二极管
+
+<img src="https://raw.githubusercontent.com/maindraster/maindraster.github.io/main/src/assets/images/2.png" width="150" style="margin: auto"/>
+
+电流变化较大时，电压变化相对小，可以电压不变，动态阻值依据电流而定。
+
+#### 隧道二极管
+
+<img src="https://raw.githubusercontent.com/maindraster/maindraster.github.io/main/src/assets/images/3.png" style="margin: auto"/>
+
+隧道二极管又称为江崎二极管，其有一个负增量电阻。一个由电阻和隧道二极管组成的 分压器其实是一个**放大电路**（上右图）。
+
+## 1.3 信号
+
 
 <p>Read more <a href="../../../guides/example/">about</a> Astro!</p>
