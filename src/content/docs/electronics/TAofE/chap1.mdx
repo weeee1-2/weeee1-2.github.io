@@ -573,6 +573,86 @@ RC低通滤波器中，当 ω 较大 ( 远离拐点，可以忽略公式中的 1
 :::tip[设计：倍压器]
 ![倍压器](../../../../assets/images/24.png)
 :::
-<p>Read more <a href="../../../guides/example/">about</a> Astro!</p>
 
-<img src="https://raw.githubusercontent.com/maindraster/maindraster.github.io/main/src/assets/images/11.png" width="160" style="margin: auto"/>
+### 1.7.5 稳压器
+
+由之前公式已知，电容充分大，波纹电压可以减小，但仍由两个缺陷：
+
+1. 所需的电容可能笨重又昂贵；
+2. 因为二极管有限内阻等导致等效电路`R>0`，仍然存在输出电压可能因输入电压、负载变化而变化的问题。
+
+一种较好的方案是先用足够大的电容降低波纹 ( 也许是直流电压的10% ) ，然后用一个有源反馈电路来消除遗留的波纹。这种反馈电路“监测”输出端，用一个可控制的串联电阻 ( 晶体管 ) 进行必要的调整，保证输出电压恒定。
+
+<img src="https://raw.githubusercontent.com/maindraster/maindraster.github.io/main/src/assets/images/25.png" width="300" style="margin: auto"/>
+
+目前此类稳压器集成电路价格低廉，容易调整输出电压，还具有自保护电路，内阻只在毫欧数量级等优势，广泛用于电子电路电源部分。
+
+### 1.7.6 二极管的电路应用
+
+#### 信号检波器
+
+[检波器](https://baike.baidu.com/item/%E6%A3%80%E6%B3%A2%E5%99%A8/7567676?fr=ge_ala)是比较宽泛的概念，这里使用二极管来获得单极性波形。
+
+但对于峰峰值低于正向压降 ( 通常 0.6V ) 的波形则无输出。解决方法有二：
+
+1. 更换元件：**主载流子二极管** ( 肖特基二极管 ) ，正向压降仅 0.25V 。
+2. 采用下图电路，用一个二极管提供偏压进行补偿。
+
+<img src="https://raw.githubusercontent.com/maindraster/maindraster.github.io/main/src/assets/images/26.png" width="160" style="margin: auto"/>
+
+#### 二极管门电路
+
+一个较好的例子是电池备用电路。电源未出故障时，电池不起作用；电源有问题时，它取代电源不间断供电。( 电源电压需高于电池电压 )
+
+<img src="https://raw.githubusercontent.com/maindraster/maindraster.github.io/main/src/assets/images/27.png" width="270" style="margin: auto"/>
+
+#### 二极管钳位器
+
+<img src="https://raw.githubusercontent.com/maindraster/maindraster.github.io/main/src/assets/images/28.png" width="220" style="margin: auto"/>
+
+对信号范围进行限制，图中的二极管防止输出超过 5.6V，但不影响低于该值的电压。但要注意电压不能过于负向，可以能反向击穿 ( 1N914 二极管反向击穿电压是 -70V )。**二极管钳位是所有 CMOS 系列数字逻辑电路输入的标准电路部分**。如果不采用，精细脆弱的输入电路很容易被静电放电毁坏。
+
+图中的 5V 电压可以通过分压器提供，但分压器的戴维南等效电路的阻值必须很小 ( 明显小于下左图的 R ) ，不然当输入大于 5.6V 时会进一步分压，导致输入的三角波在输出后出现缩顶的情况。
+
+![分压器钳位](../../../../assets/images/29.png)
+
+解决方法：
+
+1. 在 1kΩ 电阻两端加上旁路电容 ( 仅高频有效 )。相当于 667Ω 与一个感抗并联，频率越大，感抗越小，并联阻值越小。
+2. 较好的方法，采用晶体管或运算放大器，因为不用很小的电阻，从而补损耗很大的电流，却能提供几欧或更小的阻抗。
+3. 采用运算放大器作为钳位电路的一部分。( 参见第4章 )
+   
+钳位电路还可以用于**直流恢复**，对于一些电路 ( 如发射极接地的晶体管电路 ) 尤为重要，否则经过耦合的信号将渐渐消失。 图中输出信号正的峰值不变，负的值被钳位在 -0.6V 。
+
+<img src="https://raw.githubusercontent.com/maindraster/maindraster.github.io/main/src/assets/images/30.png" width="200" style="margin: auto"/>
+
+#### 限幅器
+
+图中的限幅器限制幅值在 0.6V 比较小，但可以设置两端的电源电压 ( 而不是接地 ) 。它常用于高增益的放大器的输入保护电路，防止输入太大而输出“饱和”。
+
+<img src="https://raw.githubusercontent.com/maindraster/maindraster.github.io/main/src/assets/images/31.png" width="200" style="margin: auto"/>
+
+#### 对数转换器
+
+我们可以利用二极管电流与电压的指数函数关系，制作对数转换器，即输出电压 ( 0.6V 附近 ) 与输入电流的对数成比例。最容易想到的电路使下左图电路，但有两个缺点：我们不希望有 0.6V 的偏压；不随温度灵敏变化。
+
+下右图采用两个相同的晶体管，处于同一温度下，能抵消压降变化，同时可以使 B 点接近于地电位。但前提是 D1，D2 均处于正向导通状态，这要求流经 D2 的电流始终大于流入 D1 的电流，可以通过增大 V，减小 R1 来满足。
+
+<img src="https://raw.githubusercontent.com/maindraster/maindraster.github.io/main/src/assets/images/32.png" width="480" style="margin: auto"/>
+
+### 1.7.7 感性负载与二极管保护
+
+假如突然断开一个给电感提供电流的开关，I会很快变 0 ，瞬间电压极大，开关两端电压达千伏级别。如果控制通断的是晶体管，很容易受损。
+
+<center>$V=L\frac{dI}{dt}$</center>
+
+最好的方法是将一个二极管接在电感的两端，开关打开后，二极管才导通，二极管必须能够应付初始电流 ( 即之前的稳态电流 )。
+
+这种保护电路唯一缺陷是增加了电感电流衰减时间。在要求电流必须快速衰减的场合 ( 高速击打式打印机、高速继电器 ) ，我们可以改用并联一个电阻作为保护电路。但要计算好，确保`V ( 瞬时 ) - I ( 初始 ) R`小于开关两端可允许的最大电压值。欲得到给定最大电压值内的最快衰减，可采用齐纳二极管来替代，它给出了斜坡向下的电流衰减，而非指数衰减。
+
+对于由交流电驱动的电感电路，上述保护电路不起作用，二极管会交替在半周期内导通。这种情况我们采用并联 RC “阻尼”网络 [( 视频理解 ) ](https://www.bilibili.com/video/BV1zV411R7Da/?vd_source=1e7e12674eea82df675998b72b593965)。 LC 组成振荡网络，而 R 用于吸收能量，使之快速衰减。图中为小感性负载的典型值。一种可替换的保护器件是金属氧化物变阻器，即**过渡型阻尼器**。
+
+<img src="https://raw.githubusercontent.com/maindraster/maindraster.github.io/main/src/assets/images/33.png" width="500" style="margin: auto"/>
+
+<Card title="第一章完结！🎉🎉🎉">
+</Card>
