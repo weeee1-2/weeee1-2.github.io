@@ -248,7 +248,7 @@ CMOS 缓冲器在输入是“高电平”的情况下输出“高电平” ( 它
 
 令RC足够小，则有
 
-<center>$V(t)=RC\frac{d}{dt}V_{in}(t),\(dV/dt<<dV_{in}/dt)$</center>
+<center>$V(t)=RC\frac{d}{dt}V_{in}(t),\ (dV/dt<<dV_{in}/dt)$</center>
 
 微分器可以很好地检测脉冲信号的**前沿**和**后沿**。
 
@@ -266,7 +266,7 @@ CMOS 缓冲器在输入是“高电平”的情况下输出“高电平” ( 它
 
 通过让RC乘积较大，来得到：
 
-<center>$V(t)=\frac{1}{RC}\int_0^tV_{in}(t)dt+C,\(V<<V_{in})$</center>
+<center>$V(t)=\frac{1}{RC}\int_0^tV_{in}(t)dt+C,\ (V<<V_{in})$</center>
 
 当研究运算放大器与反馈时，可以不受公式括号内条件的限制来构造积分器,它们可以在宽频率与大电压范围内以很小的误差进行工作。
 
@@ -559,8 +559,8 @@ RC低通滤波器中，当 ω 较大 ( 远离拐点，可以忽略公式中的 1
 :::caution[注意：电源整流计算]
 把放电起始段当做斜坡已经相当精确，没有必要用更精确的指数放电公式，因为：
 
-1. 仅当负载时电阻性的，放电才会是指数型的。
-2. 电容进度通常是20%或更高，考虑到制造差异，**设计时可以尽量保守，即允许元件的最差情形组合**。
+- 仅当负载时电阻性的，放电才会是指数型的。
+- 电容进度通常是20%或更高，考虑到制造差异，**设计时可以尽量保守，即允许元件的最差情形组合**。
 :::
 
 ### 1.7.4 电源的整流器结构
@@ -599,6 +599,10 @@ RC低通滤波器中，当 ω 较大 ( 远离拐点，可以忽略公式中的 1
 2. 采用下图电路，用一个二极管提供偏压进行补偿。
 
 <img src="https://raw.githubusercontent.com/maindraster/maindraster.github.io/main/src/assets/images/26.png" width="160" style="margin: auto"/>
+
+在简易收音机当中也有应用。该电路中 LC负责选频，取出所需频率的调制波，二极管检波后由电容去除载波，就可以输出原始声音信号了。
+
+<img src="https://raw.githubusercontent.com/maindraster/maindraster.github.io/main/src/assets/images/34.png" width="240" style="margin: auto"/>
 
 #### 二极管门电路
 
