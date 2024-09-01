@@ -136,7 +136,7 @@ import { Card, CardGrid } from '@astrojs/starlight/components';
 
 <center>$dB=10lg\frac{P_2}{P_1}$</center>
 
-若 A2 幅度为 A2 两倍，则对应分贝数 6dB；若是 A2 是 A1 的十倍，则为+20dB。相反则为负。
+若 A2 幅度为 A1 两倍，则对应分贝数 6dB；若是 A2 是 A1 的十倍，则为+20dB。相反则为负。
 
 尽管分贝数用于规定两信号的比值，但有时也用做对幅度的绝对衡量。例如，[dBV、dBm](https://www.zhihu.com/question/20349736/answer/3245448532)、[dB SPL](https://blog.csdn.net/GUMU12345/article/details/135240337)、dBrnC等。用这些方式表示幅度时都需要有一个参考量，计算绝对分贝数时，就将**相应的参数的值与参考量之比代替幅度比值**。
 
@@ -410,7 +410,7 @@ CMOS 缓冲器在输入是“高电平”的情况下输出“高电平” ( 它
 
 工程中常用-3dB作为滤波器的“截止点”，输出约为输入的0.707倍。在高通滤波器中，-3dB截止点由下式决定：
 
-<center>$f_{3dB}=1/2 \pi RC \quad 或 \quad \omega _{3dB}=1/RC$</center>
+<center>$f_{3dB}=1/(2 \pi RC) \quad 或 \quad \omega _{3dB}=1/RC$</center>
 
 当频率小于上述值时可以视为低频，不通过；高于此时为高频，通过。
 
@@ -426,11 +426,11 @@ CMOS 缓冲器在输入是“高电平”的情况下输出“高电平” ( 它
 
 <img src="https://raw.githubusercontent.com/maindraster/maindraster.github.io/main/src/assets/images/15.png" width="500" style="margin: auto"/>
 
-将高通滤波器的R和C互换记得到具有想法频率特性的滤波器：
+将高通滤波器的R和C互换记得到具有相反频率特性的滤波器：
 
 <center>$V_{out}=\frac{1}{(1+\omega ^2R^2C^2)^{1/2}}V_{in}$</center>
 
-3dB点与高通滤波器相同`f=1/2πRC`
+3dB点与高通滤波器相同`f=1/(2πRC)`
 
 低通滤波器在实际应用中非常普遍。例如，低通滤波器可用于消除来自附近电台与电视台的干扰 ( 550kHz~800MHz ) 。这种干扰一直是困扰音频放大器与其他灵敏度较高的电子设备的大问题。
 

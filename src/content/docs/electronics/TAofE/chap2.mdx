@@ -119,13 +119,126 @@ Z<sub>out</sub>：上一级等效阻抗；Z<sub>in</sub>：下一级的输入阻
 
 ### 2.2.3 射极跟随器作为稳压器
 
+先介绍最简单的稳压器：齐纳二极管，如图所示。齐纳二极管需要一定的电流，考虑**最差情形设计**，因此可以选择
 
+<center>$\frac{V_{in}-V_{out}}{R} > I_{out}$</center>
+
+电路中的齐纳二极管必须能够损耗：
+
+<center>$P_{zener}=(\frac{V_{in}-V_{out}}{R}-I_{out})V_{zener}$</center>
+
+再次考虑最差情形设计，需采用 V<sub>in</sub>(max) 、 R<sub>min</sub> 与 I<sub>out</sub> 。
+
+二极管稳压源有时用于一些不太重要的电路，即一些**只需要小电源电流**的场合。原因：
+
+1. V<sub>out</sub> 不可以调整。
+2. 齐纳二极管只有有限动态阻抗，只能对波纹及由输入或负载引起的变化稍加抑制。
+3. 对于负载电流变化较大的场合，有必要采用一个高功率齐纳二极管，以便应付负载电流的功率损耗。
+
+:::tip[设计：改进的稳压器]
+
+<img src="https://raw.githubusercontent.com/maindraster/maindraster.github.io/main/src/assets/images/40.png" width="240" style="margin: auto"/>
+稳压器的输出电压等于齐纳二极管的电压减去晶体管的基极-发射极电压，即 U<sub>Z</sub> − U<sub>BE</sub>，其中 U<sub>BE</sub> 通常对于硅晶体管来说约为 0.7V。
+
+假设由于外部负载减小导致输出电压下降，因为 U<sub>Z</sub> 不变，由基尔霍夫电压定律定律可知， U<sub>BE</sub> 会增加，这会进一步打开晶体管并提供更多电流以增加负载电压。反之，负载增大的情况，会导致电流减小以维持输出电压。
+
+另外 R<sub>C</sub> 的设计应当注意在最高正常负载电流时，其两端压降仍然小于 R 两端压降 ( 即确保三极管处于放大状态 ) 。
+:::
+
+<img src="https://raw.githubusercontent.com/maindraster/maindraster.github.io/main/src/assets/images/41.png" width="200" style="margin: auto"/>
+
+消除流经 R 的波纹电流对齐纳电压的影响，可以用一低通滤波器，R 提供足够大的齐纳二极管电流，C 确保滤除高于 `1/RC` 频率的电流。
+
+### 2.2.4 射极跟随器偏置
+
+1. 因为有电容，所以一定是无直流成分，正负均可的
+2. 设置合适的静态工作点，使得正负最值的范围对称，防止波形钳位。常见的设计方案会让分压器分一半电压，这是考虑到 0.6V 比较小的情况，下面的方案则尽可能准确设置静态工作点。
+
+<details>
+<summary>射极跟随器设计</summary>
+
+![详情](../../../../assets/images/42.png)
+
+步骤5的 1μF 的计算可以用`f=1/(2πRC)`求得。0.5 和 3.3 可能要用波特图之类的计算。
+</details>
+
+1. 分压器仍然要考虑负载效应，因此三极管的输入阻抗，必须远大于分压器的输入阻抗，即两电阻并联的阻值。
+
+<center>$R_1||R_2 << h_{FE}R_E$</center>
+
+#### 双电源供电的射极跟随器
+
+<img src="https://raw.githubusercontent.com/maindraster/maindraster.github.io/main/src/assets/images/43.png" width="180" style="margin: auto"/>
+
+因为信号是接近“地”的，我们也可以采用双电源供电的射极跟随器，但注意基极不能直接接信号，需要有直流通路确保三极管稳定工作在静态工作点。
+
+:::danger[错误：不能这样设计射极跟随器]
+
+<img src="https://raw.githubusercontent.com/maindraster/maindraster.github.io/main/src/assets/images/44.png" width="160" style="margin: auto"/>
+
+根据假定的放大倍数，如 100倍，估算基极电流，然后根据需要的动态范围去计算 R<sub>B</sub> 。这会导致电路对放大倍数很敏感，但事实上 β 很容易因各种因素而变化。但分压器对此则不敏感，即时 h<sub>FE</sub> 为 200 ，发射极电压相较 100 也仅有 5% 的变化。
+
+:::
+
+### 2.2.5 晶体管电流源
+
+<Card title="电流源的应用">
+- 晶体管的一种极好的偏置
+- 超增益放大器的“有源负载”与差分放大器的发射极电流源
+- 积分器、锯齿波发生器与斜坡发生器
+- 放大器与稳压器电路中能提供宽电压范围的正偏
+- 需要恒定电流源的场合，如电离子渗入法与电化学等
+</Card>
+
+<img src="https://raw.githubusercontent.com/maindraster/maindraster.github.io/main/src/assets/images/45.png" width="120" style="margin: auto"/>
+
+在三极管不处于饱和的状态下，产生的电流可以用如下公式计算：
+<center>$I_C\approx (V_B - 0.6)/R_E$</center>
+
+#### 电流源偏置电路
+
+给基极提供偏压有许多方案，下面是其中三种：
+
+<img src="https://raw.githubusercontent.com/maindraster/maindraster.github.io/main/src/assets/images/46.png" width="550" style="margin: auto"/>
+
+#### 电流源的适用范围
+
+电流源只能在确定的负载电压范围内给负载提供恒定的电流。在电流源输出特性良好的范围内，对应的输出电压称为电流源的输出**适用范围**。例如上 C 图负载电压范围可以为 0~8.6V 。适用范围计算时需要注意集电极-发射极击穿电压和过量的功率的功率损耗。
+
+电流源在基极不一定需要一个固定的电压，通过改变 V<sub>B</sub> 能得到电压可控的电流源，但输入信号变化范围 v<sub>in</sub> ( 小写字母符号意味着**交流变化量** ) 必须保持足够小，以确保发射极电压不会降至零，使输出电流能平稳地反映输入电压的变化。这种结构是这样一种电流源, 它的输出电流的变化与其输入电压的变化成正比，即 i<sub>out</sub>=v<sub>in</sub>/R<sub>E</sub> 。
+
+#### 电流源的缺陷
+
+晶体管电流源不是理想电流源主要由以下两个原因造成：
+1. V<sub>BE</sub> ( [Early效应](https://blog.csdn.net/weixin_43233653/article/details/139668965) ) 与 h<sub>FE</sub> 随集电极-发射极电压稍由变化。
+2. V<sub>BE</sub> 和 h<sub>FE</sub> 受温度影响，输出电流受温度变化而漂移。
+<details>
+
+![详情](../../../../assets/images/47.png)
+
+</details>
+
+#### 改进电流源的特性
+
+:::tip[设计：改进的三极管电流源]
+针对缺陷 1 中的 Early 效应有两种方案：固定住 V<sub>CE</sub> ；固定住 V<sub>BE</sub> 。下图分别对应这两种方案，前者还能消除 V<sub>BE</sub> 受温度影响产生的变化，但对器件有精度要求。
+
+<img src="https://raw.githubusercontent.com/maindraster/maindraster.github.io/main/src/assets/images/48.png" width="400" style="margin: auto"/>
+
+再给出一种解决缺陷 2 的温度补偿方案：
+
+<img src="https://raw.githubusercontent.com/maindraster/maindraster.github.io/main/src/assets/images/49.png" width="180" style="margin: auto"/>
+:::
+
+### 2.2.6 共射极放大电路
+
+<img src="../../../../assets/images/9.png" width="180" style="margin: auto"/>
 
 -----
 
 [^1]: 输出阻抗：指一个电路或设备在输出端口处所呈现的阻抗。输出阻抗相当于一个电阻（或阻抗）与外部电路的连接。
 [^2]: 输入阻抗：指一个电路或设备在输入端口处所呈现的阻抗，相当于一个电阻（或阻抗）与输入端口的连接。
-[^3]: 拉电流：从模块输出到负载的电流。
-[^4]: 灌电流：从信号源流向模块的电流。
+[^3]: 拉电流：从模块输出到负载的电流，电路向某点提供正电位。
+[^4]: 灌电流：从信号源流向模块的电流，电路向某点提供零电位或负电位。
 
 
