@@ -1,0 +1,24 @@
+/* styles.css */
+  .search-container {
+    display:flex;
+    justify-content: space-between; /* 两端对齐 */
+    width: 60%;
+    align-items: center;
+    background: #979797;
+    padding: 2px;
+    border-radius: 22px;
+  }
+  
+  .search-input {
+    flex-grow: 1;
+    padding: 10px;
+    border: none;
+    font-size: 16px;
+    border-radius: 20px 20px 20px 20px;
+    box-shadow: #000;
+  }
+  
+  .search-button:hover {
+    background: #0056b3;
+  }
+  
