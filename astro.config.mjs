@@ -41,7 +41,7 @@ export default defineConfig({
         }
       }]
     }, {
-      label: 'Guides',
+      label: '经验',
       items: [
       // Each item here is one entry in the navigation menu.
       {
