@@ -4,6 +4,12 @@ import starlightImageZoom from 'starlight-image-zoom';
 import remarkMath from "remark-math";
 import rehypeMathjax from 'rehype-mathjax';
 import remarkEmbedImages from 'remark-embed-images';
+import { remarkEmbed } from './src/plugins/remarkEmbed'
+import { remarkSpoiler } from './src/plugins/remarkSpoiler'
+import { rehypeCodeBlock } from './src/plugins/rehypeCodeBlock'
+import { rehypeTableBlock } from './src/plugins/rehypeTableBlock'
+import { rehypeImage } from './src/plugins/rehypeImage'
+import { rehypeLink } from './src/plugins/rehypeLink'
 
 import tailwind from "@astrojs/tailwind";
 
@@ -23,13 +29,17 @@ export default defineConfig({
     customCss: [
     // 你的自定义 CSS 文件的相对路径
     './src/styles/root.css', 
-	'./src/styles/search.css', 
-	'./src/tailwind.css',
+	  './src/styles/search.css', 
+	  './src/tailwind.css',
 	],
     social: {
-      github: 'https://github.com/withastro/starlight'
+      github: 'https://github.com/withastro/starlight',
+      youtube: 'https://space.bilibili.com/3546706348084176',
     },
     sidebar: [{
+      label: '开篇文档',
+      slug: 'train/zero2hero'
+    },{
       label: '电子电路设计',
       items: [{
         label: '前言',
@@ -41,19 +51,15 @@ export default defineConfig({
         }
       }]
     }, {
-      label: '经验',
+      label: '万能工科生基础',
       items: [
       // Each item here is one entry in the navigation menu.
       {
-        label: 'Example Guide',
-        slug: 'guides/example'
+        label: '1.实用工具',
+        slug: 'train/1tools'
       }]
-    }, {
-      label: 'Reference',
-      autogenerate: {
-        directory: 'reference'
-      }
-    }]
+    }],
+    lastUpdated: true,
   }), 
   tailwind({
 	// 禁用默认的基础样式
@@ -61,7 +67,13 @@ export default defineConfig({
   })],
   markdown: {
     // 应用于 .md 和 .mdx 文件
-    remarkPlugins: [remarkMath],
-    rehypePlugins: [rehypeMathjax, remarkEmbedImages]
+    remarkPlugins: [remarkMath, remarkEmbed, remarkSpoiler],
+    rehypePlugins: [rehypeMathjax, 
+      remarkEmbedImages,      
+      rehypeLink,
+      rehypeImage,
+      rehypeCodeBlock,
+      rehypeTableBlock,],
+    remarkRehype: { footnoteLabel: '参考', footnoteBackLabel: '返回正文' },
   }
 });
