@@ -3,13 +3,6 @@ import starlight from '@astrojs/starlight';
 import starlightImageZoom from 'starlight-image-zoom';
 import remarkMath from "remark-math";
 import rehypeMathjax from 'rehype-mathjax';
-import remarkEmbedImages from 'remark-embed-images';
-import { remarkEmbed } from './src/plugins/remarkEmbed'
-import { remarkSpoiler } from './src/plugins/remarkSpoiler'
-import { rehypeCodeBlock } from './src/plugins/rehypeCodeBlock'
-import { rehypeTableBlock } from './src/plugins/rehypeTableBlock'
-import { rehypeImage } from './src/plugins/rehypeImage'
-import { rehypeLink } from './src/plugins/rehypeLink'
 
 import tailwind from "@astrojs/tailwind";
 
@@ -17,6 +10,7 @@ import tailwind from "@astrojs/tailwind";
 export default defineConfig({
   site: 'https://maindraster.github.io',
   base: "/",
+  
   integrations: [starlight({
     plugins: [starlightImageZoom()],
     title: 'My Docs',
@@ -65,15 +59,12 @@ export default defineConfig({
 	// 禁用默认的基础样式
 	applyBaseStyles: false,
   })],
+
   markdown: {
     // 应用于 .md 和 .mdx 文件
-    remarkPlugins: [remarkMath, remarkEmbed, remarkSpoiler],
-    rehypePlugins: [rehypeMathjax, 
-      remarkEmbedImages,      
-      rehypeLink,
-      rehypeImage,
-      rehypeCodeBlock,
-      rehypeTableBlock,],
+    smartypants: false,
+    remarkPlugins: [remarkMath],
+    rehypePlugins: [ rehypeMathjax],
     remarkRehype: { footnoteLabel: '参考', footnoteBackLabel: '返回正文' },
   }
 });
