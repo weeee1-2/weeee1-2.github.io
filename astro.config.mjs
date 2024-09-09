@@ -25,6 +25,7 @@ export default defineConfig({
     './src/styles/root.css', 
 	  './src/styles/search.css', 
 	  './src/tailwind.css',
+    './src/styles/picsize.css',
 	],
     social: {
       github: 'https://github.com/withastro/starlight',

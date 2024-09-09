@@ -19,9 +19,9 @@ hero:
 
 ## 关于我
 
-<img src="/src/assets/special/redpig.jpg" alt="红猪" />
+![s150](../../../assets/special/redpig.jpg)
 
-<center class="aspect-ratio">
+<!-- <center class="aspect-ratio">
 <iframe src="//player.bilibili.com/player.html?isOutside=true&aid=113101672288189&bvid=BV1qHpBeQE4Q&cid=25788549870&p=1" scrolling="no" border="0" frameborder="no" framespacing="0" allowfullscreen="true" t="60"></iframe>
-</center>
+</center> -->
 
