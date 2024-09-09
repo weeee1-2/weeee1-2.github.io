@@ -24,6 +24,7 @@ export default defineConfig({
     // 你的自定义 CSS 文件的相对路径
     './src/styles/root.css', 
 	  './src/styles/search.css', 
+    './src/styles/iconfont.css', 
 	  './src/tailwind.css',
     './src/styles/picsize.css',
 	],

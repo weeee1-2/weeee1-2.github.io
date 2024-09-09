@@ -33,7 +33,7 @@ import { Card, CardGrid } from '@astrojs/starlight/components';
 <Card title="晶体管">
     晶体管泛指一切以半导体材料为基础的单一元件，包括各种半导体材料制成的二极管 (第一章) 、三极管、场效应管 (第3章) 、晶闸管（后三者均为三端子）等。但该书本章的晶体管仅限于三极管，后续我将用更准确的“三极管”来表述。它通常有 NPN 和 PNP 两种形式。
     
-    <img src="https://raw.githubusercontent.com/maindraster/maindraster.github.io/main/src/assets/images/35.png" width="280" style="margin: auto"/>
+    ![s280](../../../../assets/images/35.png)
 
     对于 NPN 三极管需要满足如下供电特性：
     1. 集电极电位必须高于发射极电位。
@@ -54,7 +54,7 @@ import { Card, CardGrid } from '@astrojs/starlight/components';
 
 下图是简易的开关电路，当按下开关后，基极电位抬升，必然使发射极正向导通。此时三极管必定不在**截止状态**，基极-发射极压降约为 0.6V。基极电阻上有`10V-0.6V`的电压，电流为 9.4mA 。假设三极管处于放大状态，放大 100 倍后可得通过灯的电流为 940mA ，明显大于 100mA ，灯正常工作分去 10V 电压，集电极电位接近 0V ( 典型的饱和电压大约为 0.05~0.2V ) ，低于基极电压 ( 集电极正向导通 )，不满足放大状态的条件。说明此时为**饱和状态**，不能用放大状态的电流公式计算，也说明该方法过度激励了基极电流 ( 实际 1mA 即可)。
 
-<img src="https://raw.githubusercontent.com/maindraster/maindraster.github.io/main/src/assets/images/36.png" width="180" style="margin: auto"/>
+![s180](../../../../assets/images/36.png)
 
 晶体管开关能使电路迅速地通断, 通常在微秒的几分之几数量级。 同样, 也可只用单一的控制信号来控制许多不同的电路。还有一个优点是可利用晶体管开关实现线控转换，即原先开关连接传输信号的导线可能存在损失，而该电路中开关仅控制*通断信号*。
 
@@ -74,7 +74,7 @@ import { Card, CardGrid } from '@astrojs/starlight/components';
 :::tip[设计：射极跟随器]
     如图所示，发射极电位跟随基极的输入，只比基极低一个二极管压降。
 
-    <img src="https://raw.githubusercontent.com/maindraster/maindraster.github.io/main/src/assets/images/37.png" width="200" style="margin: auto"/>
+    ![s200](../../../../assets/images/37.png)
 :::
 
 **射极跟随器的意义**：有较小的输出阻抗[^1] ( 类似戴维南等效内阻增大 ) 防止出现[负载效应](../chap1/#125-戴维南等效电路)。但如果下一级的输入阻抗[^2]是常数，则没有必要计较负载效应，因为可以量化。
@@ -107,15 +107,15 @@ Z<sub>out</sub>：上一级等效阻抗；Z<sub>in</sub>：下一级的输入阻
 
 1. 射极跟随器中的 NPN 三极管只能产生拉电流[^3]。如图所示，因为小负载和发射极电阻构成分压器钳位在 -5V ，因此灌电流[^4]也被“钳”住了。**对于小信号输出阻抗值较小 ( 即放大区时的输出阻抗 ) 并不意味着在低负载电阻上能产生大信号**。当射极跟随器包含自己的电压源或电流源时，这种问题也会随之出现。这种情况最常出现在稳压电源中，这时其输出是一个射极跟随器，并且用于驱动一个有其他电源的电路。
 
-<img src="https://raw.githubusercontent.com/maindraster/maindraster.github.io/main/src/assets/images/38.png" width="600" style="margin: auto"/>
+![s600](../../../../assets/images/38.png)
 
 解决该问题的两种方法，或者采用PNP晶体管( 如果所有信号都只是负回的)，以便减小发射极电阻 ( 在大发射极电阻与晶体管上损耗较大的功率 ) ；或者采用“推挽”结构，在这种电路中采用两个互补的晶体管 ( 一个NPN，一个PNP，参见 2.4.1 节 )。 
 
-2. 硅晶体管的基极与发射极间的反向击穿电压较小, 通常只有 6V。而足够大的输入变化范围会使晶体管处于反向截止状态, 并容易导致击穿 ( 也导致和rs的减小) 为了克服这一缺点，可加上二极管保护电路。
+1. 硅晶体管的基极与发射极间的反向击穿电压较小, 通常只有 6V。而足够大的输入变化范围会使晶体管处于反向截止状态, 并容易导致击穿 ( 也导致和rs的减小) 为了克服这一缺点，可加上二极管保护电路。
 
-<img src="https://raw.githubusercontent.com/maindraster/maindraster.github.io/main/src/assets/images/39.png" width="320" style="margin: auto"/>
+![s320](../../../../assets/images/39.png)
 
-3. 基极-发射极间电压降并不是一个常数，稍微依赖于集电极电流。
+1. 基极-发射极间电压降并不是一个常数，稍微依赖于集电极电流。
 
 ### 2.2.3 射极跟随器作为稳压器
 
@@ -137,7 +137,8 @@ Z<sub>out</sub>：上一级等效阻抗；Z<sub>in</sub>：下一级的输入阻
 
 :::tip[设计：改进的稳压器]
 
-<img src="https://raw.githubusercontent.com/maindraster/maindraster.github.io/main/src/assets/images/40.png" width="240" style="margin: auto"/>
+![s240](../../../../assets/images/40.png)
+
 稳压器的输出电压等于齐纳二极管的电压减去晶体管的基极-发射极电压，即 U<sub>Z</sub> − U<sub>BE</sub>，其中 U<sub>BE</sub> 通常对于硅晶体管来说约为 0.7V。
 
 假设由于外部负载减小导致输出电压下降，因为 U<sub>Z</sub> 不变，由基尔霍夫电压定律定律可知， U<sub>BE</sub> 会增加，这会进一步打开晶体管并提供更多电流以增加负载电压。反之，负载增大的情况，会导致电流减小以维持输出电压。
@@ -145,7 +146,7 @@ Z<sub>out</sub>：上一级等效阻抗；Z<sub>in</sub>：下一级的输入阻
 另外 R<sub>C</sub> 的设计应当注意在最高正常负载电流时，其两端压降仍然小于 R 两端压降 ( 即确保三极管处于放大状态 ) 。
 :::
 
-<img src="https://raw.githubusercontent.com/maindraster/maindraster.github.io/main/src/assets/images/41.png" width="200" style="margin: auto"/>
+![s200](../../../../assets/images/41.png)
 
 消除流经 R 的波纹电流对齐纳电压的影响，可以用一低通滤波器，R 提供足够大的齐纳二极管电流，C 确保滤除高于 `1/RC` 频率的电流。
 
@@ -168,13 +169,13 @@ Z<sub>out</sub>：上一级等效阻抗；Z<sub>in</sub>：下一级的输入阻
 
 #### 双电源供电的射极跟随器
 
-<img src="https://raw.githubusercontent.com/maindraster/maindraster.github.io/main/src/assets/images/43.png" width="180" style="margin: auto"/>
+![s180](../../../../assets/images/43.png)
 
 因为信号是接近“地”的，我们也可以采用双电源供电的射极跟随器，但注意基极不能直接接信号，需要有直流通路确保三极管稳定工作在静态工作点。
 
 :::danger[错误：不能这样设计射极跟随器]
 
-<img src="https://raw.githubusercontent.com/maindraster/maindraster.github.io/main/src/assets/images/44.png" width="160" style="margin: auto"/>
+![s160](../../../../assets/images/44.png)
 
 根据假定的放大倍数，如 100倍，估算基极电流，然后根据需要的动态范围去计算 R<sub>B</sub> 。这会导致电路对放大倍数很敏感，但事实上 β 很容易因各种因素而变化。但分压器对此则不敏感，即时 h<sub>FE</sub> 为 200 ，发射极电压相较 100 也仅有 5% 的变化。
 
@@ -190,7 +191,7 @@ Z<sub>out</sub>：上一级等效阻抗；Z<sub>in</sub>：下一级的输入阻
 - 需要恒定电流源的场合，如电离子渗入法与电化学等
 </Card>
 
-<img src="https://raw.githubusercontent.com/maindraster/maindraster.github.io/main/src/assets/images/45.png" width="120" style="margin: auto"/>
+![s120](../../../../assets/images/45.png)
 
 在三极管不处于饱和的状态下，产生的电流可以用如下公式计算：
 <center>$I_C\approx (V_B - 0.6)/R_E$</center>
@@ -199,7 +200,7 @@ Z<sub>out</sub>：上一级等效阻抗；Z<sub>in</sub>：下一级的输入阻
 
 给基极提供偏压有许多方案，下面是其中三种：
 
-<img src="https://raw.githubusercontent.com/maindraster/maindraster.github.io/main/src/assets/images/46.png" width="550" style="margin: auto"/>
+![s550](../../../../assets/images/46.png)
 
 #### 电流源的适用范围
 
@@ -223,16 +224,15 @@ Z<sub>out</sub>：上一级等效阻抗；Z<sub>in</sub>：下一级的输入阻
 :::tip[设计：改进的三极管电流源]
 针对缺陷 1 中的 Early 效应有两种方案：固定住 V<sub>CE</sub> ；固定住 V<sub>BE</sub> 。下图分别对应这两种方案，前者还能消除 V<sub>BE</sub> 受温度影响产生的变化，但对器件有精度要求。
 
-<img src="https://raw.githubusercontent.com/maindraster/maindraster.github.io/main/src/assets/images/48.png" width="400" style="margin: auto"/>
+![s400](../../../../assets/images/48.png)
 
 再给出一种解决缺陷 2 的温度补偿方案：
 
-<img src="https://raw.githubusercontent.com/maindraster/maindraster.github.io/main/src/assets/images/49.png" width="180" style="margin: auto"/>
+![s180](../../../../assets/images/49.png)
 :::
 
 ### 2.2.6 共射极放大电路
 
-<img src="../../../../assets/images/9.png" width="180" style="margin: auto"/>
 
 -----
 

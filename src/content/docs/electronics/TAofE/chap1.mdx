@@ -144,11 +144,13 @@ import { Card, CardGrid } from '@astrojs/starlight/components';
 
 <img src="https://raw.githubusercontent.com/maindraster/maindraster.github.io/main/src/assets/images/4.png" width="680" style="margin: auto"/>
 
+![s680](../../../../assets/images/4.png)
+
 **噪声**：常源于热随机噪声。电压特性可以用他的功率谱密度 ( 每赫兹是哪个的功率 ) 或它的振幅分布来描述。一种常见的噪声是**带限高斯白噪声**，它的功率谱密度函数在某一频率范围内是相等的，且对噪声电压的振幅进行大量即时测量时，振幅满足高斯分布。这种噪声是由电阻产生的 ( [Johnson噪声](https://baike.baidu.com/item/%E7%BA%A6%E7%BF%B0%E9%80%8A%EF%BC%8D%E5%A5%88%E5%A5%8E%E6%96%AF%E7%89%B9%E5%99%AA%E5%A3%B0/22800983?fr=ge_ala) )。
 
 **方波**：上升时间在几纳秒到几毫秒之间，上升时间定义为信号的总过渡转换量的10%~90%之间的时间。
 
-<img src="https://raw.githubusercontent.com/maindraster/maindraster.github.io/main/src/assets/images/5.png" width="560" style="margin: auto"/>
+![s560](../../../../assets/images/5.png)
 
 **脉冲**：由脉冲振幅和脉冲宽度定义。对一系列均匀间隔的脉冲串，我们定义**占空比**为脉冲宽度与周期之比(0~100%)。书中定义与[百度-脉冲](https://baike.baidu.com/item/%E8%84%89%E5%86%B2%E6%B3%A2/2730791?fr=ge_ala)有所不同。
 
@@ -220,7 +222,7 @@ import { Card, CardGrid } from '@astrojs/starlight/components';
 
 <center>$V=Ae^{-t/RC}$</center>
 
-<img src="https://raw.githubusercontent.com/maindraster/maindraster.github.io/main/src/assets/images/7.png" width="560" style="margin: auto"/>
+![s560](../../../../assets/images/7.png)
 
 **时间常数**：t=RC。
 
@@ -237,12 +239,12 @@ CMOS 缓冲器在输入是“高电平”的情况下输出“高电平” ( 它
 
 图中10ms是依据 RC 电路在0.7RC时间内即可达到70%的输出。但该延时电路不建议大量使用。
 
-<img src="https://raw.githubusercontent.com/maindraster/maindraster.github.io/main/src/assets/images/8.png" width="400" style="margin: auto"/>
+![s400](../../../../assets/images/8.png)
 :::
 
 ### 1.4.3 微分器
 
-<img src="https://raw.githubusercontent.com/maindraster/maindraster.github.io/main/src/assets/images/9.png" width="530" style="margin: auto"/>
+![s530](../../../../assets/images/9.png)
 
 <center>$I=C\frac{d}{dt}(V_{in}-V)=\frac{V}{R}$</center>
 
@@ -253,14 +255,16 @@ CMOS 缓冲器在输入是“高电平”的情况下输出“高电平” ( 它
 微分器可以很好地检测脉冲信号的**前沿**和**后沿**。
 
 :::caution[故障：不需要的容性耦合]
-<img src="https://raw.githubusercontent.com/maindraster/maindraster.github.io/main/src/assets/images/10.png" width="150" style="margin: auto"/>
+
+![s150](../../../../assets/images/10.png)
+
 - 第一种情况是一个方波在电容某处被容性耦合至我们关心的信号通路上造成的。这意味着这个信号通路上缺少一个电阻负载。
 - 第二种情况是遇到一个方波输入，但在电路某处断开，通常是示波器探头断开，中断处的小电容与示波器的输入电阻相结合构成一个微分电路。
 :::
 
 ### 1.4.4 积分器
 
-<img src="https://raw.githubusercontent.com/maindraster/maindraster.github.io/main/src/assets/images/11.png" width="160" style="margin: auto"/>
+![s160](../../../../assets/images/11.png)
 
 <center>$I=C\frac{dV}{dt}=\frac{(V_{in}-V)}{R}$</center>
 
@@ -310,7 +314,7 @@ CMOS 缓冲器在输入是“高电平”的情况下输出“高电平” ( 它
 
 利用该特性，我们可绘制出针对某一电路的**频率响应图**，其反映每一频率的正弦波的输出与输入之比。以某一放大器的扬声器举例，我们希望它具有平坦的响应特性，即关于频率的声压图形在音频频带范围内是一个常数，则可以将一个具有逆响应的无源滤波器用于音频放大器中，以弥补缺陷。
 
-<img src="https://raw.githubusercontent.com/maindraster/maindraster.github.io/main/src/assets/images/12.png" width="500" style="margin: auto"/>
+![s500](../../../../assets/images/12.png)
 
 我们可以推广电阻的概念到“阻抗”，阻抗 = 电阻 + 电抗 ( 电容和电感具有的 ) 。对由复杂波形激励的电路进行分析涉及到微分方程或将复杂波形分解为正弦波分量的傅里叶分析法。以下的讨论只考虑由单一正弦波激励的电路。
 
@@ -396,7 +400,7 @@ CMOS 缓冲器在输入是“高电平”的情况下输出“高电平” ( 它
 
 #### 高通滤波器
 
-<img src="https://raw.githubusercontent.com/maindraster/maindraster.github.io/main/src/assets/images/13.png" width="180" style="margin: auto"/>
+![s180](../../../../assets/images/13.png)
 
 <center>$I=\frac{V_{in}}{R-j/\omega C}=\frac{V_{in}[R+(j/\omega C)]}{R^2+1/\omega ^2C^2}$</center>
 
@@ -406,7 +410,7 @@ CMOS 缓冲器在输入是“高电平”的情况下输出“高电平” ( 它
 
 <center>$V_{out}=(V_{out}V_{out}^*)^{1/2}= \frac{R}{[R^2+1/\omega ^2C^2]^{1/2}}V_{in}$</center>
 
-<img src="https://raw.githubusercontent.com/maindraster/maindraster.github.io/main/src/assets/images/14.png" width="300" style="margin: auto"/>
+![s300](../../../../assets/images/14.png)
 
 工程中常用-3dB作为滤波器的“截止点”，输出约为输入的0.707倍。在高通滤波器中，-3dB截止点由下式决定：
 
@@ -424,7 +428,7 @@ CMOS 缓冲器在输入是“高电平”的情况下输出“高电平” ( 它
 
 #### 低通滤波器
 
-<img src="https://raw.githubusercontent.com/maindraster/maindraster.github.io/main/src/assets/images/15.png" width="500" style="margin: auto"/>
+![s500](../../../../assets/images/15.png)
 
 将高通滤波器的R和C互换记得到具有相反频率特性的滤波器：
 
@@ -456,7 +460,7 @@ RL也可以组成高/低通滤波器，但电感比电容笨重、价格昂贵�
 
 阻抗可以用矢量相加来理解。
 
-<img src="https://raw.githubusercontent.com/maindraster/maindraster.github.io/main/src/assets/images/16.png" width="360" style="margin: auto"/>
+![s360](../../../../assets/images/16.png)
 
 先前，我们引入了电流和电压的复数表示，但在计算时并不够方便，完善[此公式](./#电压和电流的复数表示)：
 
@@ -494,13 +498,15 @@ RC低通滤波器中，当 ω 较大 ( 远离拐点，可以忽略公式中的 1
 
 与电阻结合形成分压器。当`f=1/2π√LC`时，阻抗为无穷大，使得该频率点上的响应值为一个峰值。
 
-<img src="https://raw.githubusercontent.com/maindraster/maindraster.github.io/main/src/assets/images/17.png" width="480" style="margin: auto"/>
+![s480](../../../../assets/images/17.png)
 
 实际上，电容和电感的损耗会限制峰值的尖锐度，但有时会故意加入一个电阻以减少谐振峰值的尖锐度。这种电路就是 **LC 并联谐振电路**，即**谐振电路**。激励该电路的阻抗越高 ( 理解为串联的 R 变大，要使并联的阻抗远大于 R 就要更接近于谐振频率的f ) ，曲线峰值越尖，因而通常不用一些类似于电流源的信号源来激励。**品质因数 Q** 是对响应曲线峰值尖锐度的衡量， 等于 -3dB 处的频率宽度除以谐振频率。对于并联RLC电路，`Q=ω0RC`。
 
 另一种 LC 电路是串联 LC 电路。`Q=ω0L/R`。**这两种电路都主要用于射频电路**。
 
 <img src="https://raw.githubusercontent.com/maindraster/maindraster.github.io/main/src/assets/images/18.png" width="480" style="margin: auto"/>
+
+![s480](../../../../assets/images/18.png)
 
 ### 1.6.6 电容的其他作用
 
@@ -529,7 +535,7 @@ RC低通滤波器中，当 ω 较大 ( 远离拐点，可以忽略公式中的 1
 
   反向电流是纳安数量级的。反向击穿电压不同二极管有所不同，1N914 典型的反向击穿电压为 75V 。常用二极管正向压降，在 0.5V~0.8V之间。
 
-  <img src="https://raw.githubusercontent.com/maindraster/maindraster.github.io/main/src/assets/images/19.png" width="400" style="margin: auto"/>
+  ![s400](../../../../assets/images/19.png)
 
   注意二极管不具有电阻，**当电路中有非线性的器件时，不能进行戴维南等效**。
   <details>
@@ -542,13 +548,13 @@ RC低通滤波器中，当 ω 较大 ( 远离拐点，可以忽略公式中的 1
 
 整流将交流 ( 电流方向会变化，图中即正负变化 ) 变为直流。
 
-<img src="https://raw.githubusercontent.com/maindraster/maindraster.github.io/main/src/assets/images/21.png" width="500" style="margin: auto"/>
+![s500](../../../../assets/images/21.png)
 
 ### 1.7.3 电源滤波
 
 上述整流的效果因为波纹 ( 稳定在电压值周围做周期性变化的成分 ) 存在而不太理想。利用低通滤波器可以设法平滑这些波纹成分。图中串联的 R 其实可以省略 ( 有时会存在一个较小的电阻用来限制峰值整流电流的 ) ，理由是二极管能防止电流从电容流回，电容比传统滤波器更能作为储能元件，电容值选择：`RC >> 1/f`， R 为负载电阻。
 
-<img src="/src/assets/images/22.png" width="500" style="margin: auto"/>
+![s500](../../../../assets/images/22.png)
 
 经过低通滤波后的波纹电压可以这么理解，当整流器输出的电压高于电容器两端电压 ( 输出电压 ) 时，电容器充电直到相等，而后由于整流器输出电压降低，电容器会稍放电，输出电压略微降低，如图所示。波峰峰峰值可以按下式计算：
 
@@ -598,21 +604,21 @@ RC低通滤波器中，当 ω 较大 ( 远离拐点，可以忽略公式中的 1
 1. 更换元件：**主载流子二极管** ( 肖特基二极管 ) ，正向压降仅 0.25V 。
 2. 采用下图电路，用一个二极管提供偏压进行补偿。
 
-<img src="https://raw.githubusercontent.com/maindraster/maindraster.github.io/main/src/assets/images/26.png" width="160" style="margin: auto"/>
+![s160](../../../../assets/images/26.png)
 
 在简易收音机当中也有应用。该电路中 LC负责选频，取出所需频率的调制波，二极管检波后由电容去除载波，就可以输出原始声音信号了。
 
-<img src="https://raw.githubusercontent.com/maindraster/maindraster.github.io/main/src/assets/images/34.png" width="240" style="margin: auto"/>
+![s240](../../../../assets/images/34.png)
 
 #### 二极管门电路
 
 一个较好的例子是电池备用电路。电源未出故障时，电池不起作用；电源有问题时，它取代电源不间断供电。( 电源电压需高于电池电压 )
 
-<img src="https://raw.githubusercontent.com/maindraster/maindraster.github.io/main/src/assets/images/27.png" width="270" style="margin: auto"/>
+![s270](../../../../assets/images/27.png)
 
 #### 二极管钳位器
 
-<img src="https://raw.githubusercontent.com/maindraster/maindraster.github.io/main/src/assets/images/28.png" width="220" style="margin: auto"/>
+![s220](../../../../assets/images/28.png)
 
 对信号范围进行限制，图中的二极管防止输出超过 5.6V，但不影响低于该值的电压。但要注意电压不能过于负向，可以能反向击穿 ( 1N914 二极管反向击穿电压是 -70V )。**二极管钳位是所有 CMOS 系列数字逻辑电路输入的标准电路部分**。如果不采用，精细脆弱的输入电路很容易被静电放电毁坏。
 
@@ -628,13 +634,13 @@ RC低通滤波器中，当 ω 较大 ( 远离拐点，可以忽略公式中的 1
    
 钳位电路还可以用于**直流恢复**，对于一些电路 ( 如发射极接地的晶体管电路 ) 尤为重要，否则经过耦合的信号将渐渐消失。 图中输出信号正的峰值不变，负的值被钳位在 -0.6V 。
 
-<img src="https://raw.githubusercontent.com/maindraster/maindraster.github.io/main/src/assets/images/30.png" width="200" style="margin: auto"/>
+![s200](../../../../assets/images/30.png)
 
 #### 限幅器
 
 图中的限幅器限制幅值在 0.6V 比较小，但可以设置两端的电源电压 ( 而不是接地 ) 。它常用于高增益的放大器的输入保护电路，防止输入太大而输出“饱和”。
 
-<img src="https://raw.githubusercontent.com/maindraster/maindraster.github.io/main/src/assets/images/31.png" width="200" style="margin: auto"/>
+![s200](../../../../assets/images/31.png)
 
 #### 对数转换器
 
@@ -642,7 +648,7 @@ RC低通滤波器中，当 ω 较大 ( 远离拐点，可以忽略公式中的 1
 
 下右图采用两个相同的晶体管，处于同一温度下，能抵消压降变化，同时可以使 B 点接近于地电位。但前提是 D1，D2 均处于正向导通状态，这要求流经 D2 的电流始终大于流入 D1 的电流，可以通过增大 V，减小 R1 来满足。
 
-<img src="https://raw.githubusercontent.com/maindraster/maindraster.github.io/main/src/assets/images/32.png" width="480" style="margin: auto"/>
+![s480](../../../../assets/images/32.png)
 
 ### 1.7.7 感性负载与二极管保护
 
@@ -656,7 +662,7 @@ RC低通滤波器中，当 ω 较大 ( 远离拐点，可以忽略公式中的 1
 
 对于由交流电驱动的电感电路，上述保护电路不起作用，二极管会交替在半周期内导通。这种情况我们采用并联 RC “阻尼”网络 [( 视频理解 ) ](https://www.bilibili.com/video/BV1zV411R7Da/?vd_source=1e7e12674eea82df675998b72b593965)。 LC 组成振荡网络，而 R 用于吸收能量，使之快速衰减。图中为小感性负载的典型值。一种可替换的保护器件是金属氧化物变阻器，即**过渡型阻尼器**。
 
-<img src="https://raw.githubusercontent.com/maindraster/maindraster.github.io/main/src/assets/images/33.png" width="500" style="margin: auto"/>
+![s500](../../../../assets/images/33.png)
 
 <Card title="第一章完结！🎉🎉🎉">
 </Card>
