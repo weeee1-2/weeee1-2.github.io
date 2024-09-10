@@ -20,7 +20,7 @@ import.meta.env.BASE_URL
 </div> -->
 
 <div class="container-pdf">
-<embed src="../../../src/assets/introduction.pdf" type="application/pdf" width="100%" height="100%" />
+<embed src="../../src/assets/introduction.pdf" type="application/pdf" width="100%" height="100%" />
 </div>
 
 ## 关于我
