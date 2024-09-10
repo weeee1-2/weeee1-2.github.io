@@ -18,9 +18,8 @@ import.meta.env.BASE_URL
 <!-- <div class="container-pdf">
 <iframe src="../../../assets/introduction.pdf" style="width: 100%; height: 100%"></iframe>
 </div> -->
-
 <div class="container-pdf">
-<embed src="../../src/assets/introduction.pdf" type="application/pdf" width="100%" height="100%" />
+<embed src="/pdf/introduction.pdf" type="application/pdf" width="100%" height="100%" />
 </div>
 
 ## 关于我
