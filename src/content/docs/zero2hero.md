@@ -2,7 +2,6 @@
 title: 开篇 
 lastUpdate: true
 ---
-import.meta.env.BASE_URL
 
 ![s](../../assets/special/bg.jpg)
 
