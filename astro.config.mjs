@@ -29,12 +29,16 @@ export default defineConfig({
     './src/styles/picsize.css',
 	],
     social: {
-      github: 'https://github.com/withastro/starlight',
-      youtube: 'https://space.bilibili.com/3546706348084176',
+      github: 'https://github.com/maindraster/maindraster.github.io',
     },
     sidebar: [{
       label: '开篇文档',
-      slug: 'train/zero2hero'
+      slug: 'zero2hero'
+    },{
+      label: '万能工科生基础',
+      autogenerate: {
+          directory: 'train'
+        }
     },{
       label: '电子电路设计',
       items: [{
@@ -45,14 +49,6 @@ export default defineConfig({
         autogenerate: {
           directory: 'electronics/TAofE'
         }
-      }]
-    }, {
-      label: '万能工科生基础',
-      items: [
-      // Each item here is one entry in the navigation menu.
-      {
-        label: '1.实用工具',
-        slug: 'train/1tools'
       }]
     }],
     lastUpdated: true,

@@ -4,7 +4,7 @@ lastUpdate: true
 ---
 import.meta.env.BASE_URL
 
-![s](../../../assets/special/bg.jpg)
+![s](../../assets/special/bg.jpg)
 
 ```
 不与世俗为伍，哪怕这是自己许给自己的诅咒。
@@ -15,16 +15,9 @@ import.meta.env.BASE_URL
 
 本文档将分为两个大块，一个是**万能工科生基础教程**（左侧目录最上面），其余部分就是另一块，为学习笔记，但会尽量确保符合学习相关内容的逻辑。**如有补充，会在本页面增加说明**。
 
-<!-- <div class="container-pdf">
-<iframe src="../../../assets/introduction.pdf" style="width: 100%; height: 100%"></iframe>
-</div> -->
-<div class="container-pdf">
-<embed src="/pdf/introduction.pdf" type="application/pdf" width="100%" height="100%" />
-</div>
-
 ## 关于我
 
-![s150](../../../assets/special/redpig.jpg)
+![s150](../../assets/special/redpig.jpg)
 
 <div class="container-icon">
 <a href="https://space.bilibili.com/3546706348084176" class="item-icon" style="font-size: 24px;text-decoration: none;" className="iconfont icon-bilibili"></a>
