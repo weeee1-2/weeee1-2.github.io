@@ -2,6 +2,7 @@
 title: 开篇 
 lastUpdate: true
 ---
+import.meta.env.BASE_URL
 
 ![s](../../../assets/special/bg.jpg)
 
@@ -14,12 +15,12 @@ lastUpdate: true
 
 本文档将分为两个大块，一个是**万能工科生基础教程**（左侧目录最上面），其余部分就是另一块，为学习笔记，但会尽量确保符合学习相关内容的逻辑。**如有补充，会在本页面增加说明**。
 
-<div class="container-pdf">
-<iframe src="/src/assets/introduction.pdf" style="width: 100%; height: 100%"></iframe>
-</div>
+<!-- <div class="container-pdf">
+<iframe src="../../../assets/introduction.pdf" style="width: 100%; height: 100%"></iframe>
+</div> -->
 
 <div class="container-pdf">
-<embed src="/src/assets/introduction.pdf" type="application/pdf" width="100%" height="100%" />
+<embed src="../../../src/assets/introduction.pdf" type="application/pdf" width="100%" height="100%" />
 </div>
 
 ## 关于我
