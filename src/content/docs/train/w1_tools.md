@@ -3,6 +3,10 @@ title: W1 实用工具
 description: 实用软件、插件等。
 ---
 
+<center class="aspect-ratio" >
+<iframe src="//player.bilibili.com/player.html?isOutside=true&aid=113114070844921&bvid=BV1RQ4aekExb&cid=25816534257&p=1" scrolling="no" border="0" frameborder="no" framespacing="0" allowfullscreen="true"></iframe>
+</center>
+
 ## 学习类
 
 **生产力终极应用列表 ↓**
@@ -79,6 +83,10 @@ PS、Pr、AE等：[浙大正版软件平台](http://ms.zju.edu.cn/)、破解版
 
 [PDFGear](https://www.pdfgear.com/zh/)：免费好用的 PDF 浏览编辑器
 
+### 格式转换
+
+[格式工厂](http://www.pcgeshi.com/download.html)：图片、音频、文档等格式转换工具
+
 ## 专业类
 
 不作详细展开，但非常建议大家先安装一个[VScode](https://code.visualstudio.com/)作为代码编辑器，甚至可以烧录到单片机中。
@@ -115,8 +123,9 @@ PS、Pr、AE等：[浙大正版软件平台](http://ms.zju.edu.cn/)、破解版
 
 见[轻首页](/#nav)
 
+## 本周任务
+
 ```
-本周任务
 1. 找到适合自己的工作流（如何学习和巩固知识，不一定非要使用上述的工具）
 2. 能魔法上网
 3. 熟练使用 AI ，适当寻找其他实用 AI 

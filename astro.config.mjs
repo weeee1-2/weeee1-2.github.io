@@ -50,6 +50,17 @@ export default defineConfig({
           directory: 'electronics/TAofE'
         }
       }]
+    },{
+      label: '人工智能',
+      items: [{
+        label: '人工智能前言',
+        slug: 'ai/index_ai'
+      }, {
+        label: '深度学习',
+        autogenerate: {
+          directory: 'ai/dl'
+        }
+      }]
     }],
     lastUpdated: true,
   }), 
