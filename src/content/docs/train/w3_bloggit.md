@@ -2,6 +2,10 @@
 title: W3 搭建博客与Git操作
 ---
 
+<center class="aspect-ratio" >
+<iframe src="//player.bilibili.com/player.html?isOutside=true&aid=113187336822624&bvid=BV1oxsDesEwt&cid=25972441459&p=1" scrolling="no" border="0" frameborder="no" framespacing="0" allowfullscreen="true"></iframe>
+</center>
+
 ## 搭建博客
 
 ### 什么是博客？
