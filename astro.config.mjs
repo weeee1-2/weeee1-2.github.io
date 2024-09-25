@@ -10,7 +10,7 @@ import tailwind from "@astrojs/tailwind";
 export default defineConfig({
   site: 'https://maindraster.github.io',
   base: "/",
-  
+
   integrations: [starlight({
     plugins: [starlightImageZoom()],
     title: 'My Docs',

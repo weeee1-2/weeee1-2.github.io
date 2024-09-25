@@ -1,29 +1,45 @@
 ---
-title: 全栈入门指南
+title: 全栈入门指南 
 description: 欢迎来到工科生困意的个人学习记录网站！
 template: splash
-hero:
-  tagline: 欢迎来到工科生困意的个人学习记录网站！
-  image:
-    file: ../../assets/zhouston.webp
-  actions:
-    - text: 快速开始
-      link: /zero2hero/
-      icon: right-arrow
-    - text: 资源导航
-      link: /#nav
-      icon: right-arrow
-      variant: secondary
-    - text: 关于我
-      link: /zero2hero/#关于我
-      icon: external
-      variant: minimal
 ---
-
 import Card from '../../components/Card.astro';
 import CardGrid from '../../components/CardGrid.astro';
 import { LinkButton } from '@astrojs/starlight/components';
 import { Tabs, TabItem } from '@astrojs/starlight/components';
+import Highlight from '../../components/Highlight.astro'
+import { hero, author } from '../../config.json'
+
+<div class="lg:-mt-16 lg:h-[500px] lg:min-h-[500px]">
+  <div
+    class="relative max-w-[1300px] mx-auto h-full px-4 grid lg:grid-cols-2  items-start justify-items-center" style="margin-top: 10%;"
+  >
+    <div class="mt-[120px] lg:mt-0 max-w-[590px]">
+      <h2 class="text-1xl text-center lg:text-left text-balance">
+        Hi there, I'm <Highlight class="font-bold">{hero.name}</Highlight>🥰<br />一个<Highlight class="font-bold">为理想痴狂实干</Highlight>的疯子
+      </h2>
+      <div class="text-sm text-secondary mt-3 text-center lg:text-left">
+        🔴 硬件基础（电路设计、微机原理……）<br />🔴 计算机技术（组成、网络、系统……）<br />🔴 软件工程（前端、后端）<br />🔴 人工智能（深度学习……）
+      </div>
+	  <div class="container-icon">
+		<a href="https://space.bilibili.com/3546706348084176" style="padding: 20px;font-size: 24px;text-decoration: none;" className="iconfont icon-bilibili"></a>
+		<a href="https://github.com/maindraster" style="padding: 20px;font-size: 24px;text-decoration: none;" className="iconfont icon-github"></a>
+		<a href="https://www.zhihu.com/people/wen-dao-81-2-70" style="padding: 20px;font-size: 24px;text-decoration: none;" className="iconfont icon-zhihu"></a>
+		</div>
+		<LinkButton href="/zero2hero/">快速开始</LinkButton>	  
+		<LinkButton href="/#nav" variant="secondary">导航</LinkButton>
+		<LinkButton href="/zero2hero/#关于我" variant="minimal" icon="external" >关于我</LinkButton>
+		<LinkButton href="/friend/" variant="minimal" icon="external" >朋友们</LinkButton>
+    </div>
+    <div class="mt-20 lg:mt-0">
+      <div
+        class="size-[200px] lg:size-[300px] rounded-full overflow-hidden border border-primary bg-zinc-100 dark:bg-zinc-800"
+      >
+        <img class="size-full" src={author.avatar} alt="Site owner avatar" loading="lazy" />
+      </div>
+    </div>
+  </div>
+</div>
 
 <br></br>
 <h3 id="nav"></h3>
@@ -186,8 +202,7 @@ import { Tabs, TabItem } from '@astrojs/starlight/components';
 	</Card>
 </CardGrid>
 
-<div class="container-icon">
-<a href="https://space.bilibili.com/3546706348084176"  style="font-size: 24px;text-decoration: none;" className="iconfont icon-bilibili"></a>
-<a href="https://github.com/maindraster" style="font-size: 24px;text-decoration: none;" className="iconfont icon-github"></a>
-<a href="https://www.zhihu.com/people/wen-dao-81-2-70" style="font-size: 24px;text-decoration: none;" className="iconfont icon-zhihu"></a>
+
+<div class="not-content">
+<script src="https://lytoday.lylme.com/"></script>
 </div>
