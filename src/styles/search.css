@@ -1,5 +1,5 @@
 /* styles.css */
-  .search-container {
+  .search-container-b {
     display:flex;
     justify-content: space-between; /* 两端对齐 */
     width: 60%;
@@ -9,7 +9,7 @@
     border-radius: 22px;
   }
   
-  .search-input {
+  .search-input-b {
     flex-grow: 1;
     padding: 10px;
     border: none;
