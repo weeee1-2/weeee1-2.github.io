@@ -2,6 +2,10 @@
 title: W4 前后端速成
 ---
 
+<center class="aspect-ratio">
+<iframe src="//player.bilibili.com/player.html?isOutside=true&aid=113226377334828&bvid=BV16xx4ecEAH&cid=26077826622&p=1" scrolling="no" border="0" frameborder="no" framespacing="0" allowfullscreen="true"></iframe>
+</center>
+
 当前 AI 已有很强的写代码能力，要想实现前后端没有必要再花大量时间，我们仅仅只需要对前后端有一个基础的认知。而这就是这个视频的目标，我就是了解这些并用短短几个小时调教国内 AI 帮我写了一个前后端。
 
 ## 前端
@@ -26,22 +30,35 @@ HTML（HyperText Markup Language）是构建网页和网络应用内容的结构
 2. `<head>`标签包含了文档的元数据，即描述文档或文档中某个部分内容的信息，以及关于文档的配置信息。这部分内容对用户不可见，但对浏览器、搜索引擎和其它Web服务很重要。<head>中常见的元素包括：
 
 `<title>`：定义网页的标题，显示在浏览器的标签页上。
+
 `<meta>`：提供关于HTML文档的元数据，如字符集声明、页面描述、关键词等。
+
 `<link>`：链接到外部资源，如CSS样式表。
+
 `<script>`：嵌入或引用JavaScript代码。
+
 `<style>`：内联CSS样式。
+
 `<base>`：指定整个文档中所有相对URL的基准URL。
+
 `<meta>`：定义文档的元数据，如作者、描述、关键词等。
 
 3. `<body>`标签包含了网页的可见内容，即用户在浏览器窗口中看到的部分。这包括文本、图片、视频、游戏、表单等。<body>中的内容是直接呈现给用户的。
 
 `<h1>`到`<h6>`：标题标签。
+
 `<p>`：段落。
+
 `<a>`：超链接。
+
 `<img>`：图片。
+
 `<div>`：文档中的分区或节。
+
 `<span>`：文本中的分区或节。
+
 `<table>`：表格。
+
 `<form>`：表单。
 
 实践：看看 B 站的动态横幅（`<img>`）、分区按钮（`<a>`）。
@@ -71,7 +88,7 @@ CSS（层叠样式表，Cascading Style Sheets）是一种用于描述HTML或XML
 </html>
 ```
 
-2. 内部样式表：在HTML文档的<head>部分使用<style>标签定义样式。
+2. 内部样式表：在HTML文档的`<head>`部分使用<style>标签定义样式。
 
 ```html
 <!doctype html>
@@ -180,7 +197,7 @@ window.onload = initializeCounter;
 
 后端专门处理业务逻辑等，而数据库专注于数据的存储、检索、更新和管理。
 
-常见数据库有：PostgreSAL , MySQL , MongoDB 等。
+常见数据库有：PostgreSQL , MySQL , MongoDB 等。
 
 ### API
 

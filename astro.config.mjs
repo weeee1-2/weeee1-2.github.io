@@ -60,6 +60,11 @@ export default defineConfig({
         autogenerate: {
           directory: 'ai/dl'
         }
+      },{
+        label: 'AI应用',
+        autogenerate: {
+          directory: 'ai/tools'
+        }
       }]
     }],
     lastUpdated: true,
