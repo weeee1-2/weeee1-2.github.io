@@ -39,3 +39,9 @@ title: W5 原理图、PCB绘制通识
 基本上电子 DIY 都要一块 MCU 作为核心来计算，常见的 MCU 也就只有那么几种，比如 ESP32、ESP8266、STM32等，它们都有相应的数据手册（这一块就是嵌入式编程相关的内容），因此相对套路化。所以我们想学的最好办法就是去抄、去复刻、然后理解。
 
 **后续会考虑和大家一起抄一个项目，一步步来，学会从电路到嵌入式开发的电子 DIY 全流程。**
+
+<div class="container-icon">
+<a href="https://space.bilibili.com/3546706348084176" style="padding: 20px;font-size: 24px;text-decoration: none;" className="iconfont icon-bilibili"></a>
+<a href="https://github.com/maindraster" style="padding: 20px;font-size: 24px;text-decoration: none;" className="iconfont icon-github"></a>
+<a href="https://www.zhihu.com/people/wen-dao-81-2-70" style="padding: 20px;font-size: 24px;text-decoration: none;" className="iconfont icon-zhihu"></a>
+</div>
