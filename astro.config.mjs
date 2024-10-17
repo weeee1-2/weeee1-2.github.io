@@ -13,7 +13,7 @@ export default defineConfig({
 
   integrations: [starlight({
     plugins: [starlightImageZoom()],
-    title: 'My Docs',
+    title: '🦄&🐟',
     locales: {
       root: {
         label: '简体中文',
@@ -40,32 +40,14 @@ export default defineConfig({
           directory: 'train'
         }
     },{
-      label: '电子电路设计',
-      items: [{
-        label: '前言',
-        slug: 'electronics/index_ecd'
-      }, {
-        label: '电子学',
-        autogenerate: {
-          directory: 'electronics/TAofE'
-        }
-      }]
+      label: '电子电路设计篇',
+      slug: 'electronics/index_ecd'
     },{
-      label: '人工智能',
-      items: [{
-        label: '人工智能前言',
-        slug: 'ai/index_ai'
-      }, {
-        label: '深度学习',
-        autogenerate: {
-          directory: 'ai/dl'
-        }
-      },{
-        label: 'AI应用',
-        autogenerate: {
-          directory: 'ai/tools'
-        }
-      }]
+      label: '嵌入式开发篇',
+      slug: 'embed/index_emb'
+    },{
+      label: '人工智能篇',
+      slug: 'ai/index_ai'
     }],
     lastUpdated: true,
   }), 
