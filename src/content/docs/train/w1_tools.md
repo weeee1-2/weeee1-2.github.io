@@ -111,13 +111,9 @@ PS、Pr、AE等：[浙大正版软件平台](http://ms.zju.edu.cn/)、破解版
 
 ## 魔法类
 
-魔法上网，又称科学上网，还称翻墙。
+群友怕网站被 Ban，内容已删，详细文档见 qq 群：912366288
 
-高强度自己使用：一般要购买相关服务 + 代理软件实现。经典glados和clash。
-
-低强度使用：借，[这个](https://github.com/Alvin9999/new-pac/wiki/ss%E5%85%8D%E8%B4%B9%E8%B4%A6%E5%8F%B7)很少有人知道。
-
-我写的一篇 [Linux ( Ubuntu ) 系统翻墙](https://zhuanlan.zhihu.com/p/692414049) 文章。
+我写的一篇 [Linux ( Ubuntu ) 系统装clash](https://zhuanlan.zhihu.com/p/692414049) 文章。
 
 ## AI 工具
 

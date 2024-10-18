@@ -13,8 +13,8 @@ lastUpdate: true
 
 ### 深度学习
 
-[《深度学习入门鱼书》](../dl/rumen.md)
+[《深度学习入门鱼书》](../dl/rumen/)
 
 ## 实用 AI 工具
 
-1. [LM Studio, Fitten Code](../tools/tools1.md)
+1. [LM Studio, Fitten Code](../tools/tools1/)

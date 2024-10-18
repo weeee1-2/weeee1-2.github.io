@@ -48,6 +48,12 @@ export default defineConfig({
     },{
       label: '人工智能篇',
       slug: 'ai/index_ai'
+    },{
+      label: '项目实战篇',
+      items: [{
+        label: '1.从非门到俄罗斯方块',
+        slug: 'project/nand2tetris/nand2tetris'
+      }]
     }],
     lastUpdated: true,
   }), 
