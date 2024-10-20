@@ -53,6 +53,9 @@ export default defineConfig({
       items: [{
         label: '1.从非门到俄罗斯方块',
         slug: 'project/nand2tetris/nand2tetris'
+      },{
+        label: '2.一生一芯',
+        slug: 'project/ysyx/ysyx'
       }]
     }],
     lastUpdated: true,
