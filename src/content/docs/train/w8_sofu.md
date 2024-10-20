@@ -1,5 +1,5 @@
 ---
-title: W7 SolidWorks建模与3D打印
+title: W8 SolidWorks建模与3D打印
 ---
 
 ## SolidWorks
