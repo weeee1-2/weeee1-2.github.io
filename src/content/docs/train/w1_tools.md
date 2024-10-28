@@ -1,6 +1,7 @@
 ---
 title: W1 实用工具
 description: 实用软件、插件等。
+lastUpdated: 2024-09-11
 ---
 
 <center class="aspect-ratio" >
@@ -113,7 +114,7 @@ PS、Pr、AE等：[浙大正版软件平台](http://ms.zju.edu.cn/)、破解版
 
 群友怕网站被 Ban，内容已删，详细文档见 qq 群：912366288
 
-我写的一篇 [Linux ( Ubuntu ) 系统装clash](https://zhuanlan.zhihu.com/p/692414049) 文章。
+我写的一篇 [Linux ( Ubuntu ) 系统装clash](https://zhuanlan.zhihu.com/p/2852384493) 文章。
 
 ## AI 工具
 

@@ -1,5 +1,6 @@
 ---
 title: W7 MATLAB+Simulink基础
+lastUpdated: 2024-10-21
 ---
 
 ## MATLAB 安装与学习

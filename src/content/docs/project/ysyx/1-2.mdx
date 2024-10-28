@@ -303,6 +303,13 @@ Windows 系统直接从硬件 BIOS 读取时间，也就是当地时间（北京
 中文输入法有ibus、fcitx、搜狗拼音输入法等，这里介绍 fcitx5 安装方法。
 
 :::tip[参考资料]
+为什么不建议安装搜狗输入法？
+
+因为安装步骤（把汉语放到English前面并应用）中会更改系统环境语言，这在一生一芯文档中不建议，虽然修改起来比较方便也影响不大。你可以通过下面语句来判断系统环境的语言：
+```cmd
+echo $LANG
+```
+
 Ubuntu 安装 fcitx5 : https://zhuanlan.zhihu.com/p/508797663
 :::
 
@@ -345,18 +352,94 @@ Ubuntu 安装 fcitx5 : https://zhuanlan.zhihu.com/p/508797663
 
    ![s400](../../../../assets/images/2ysyx17.png)
 
-8. 在你的应用（左下角九个点打开）有三只企鹅，打开 Fcitx config （大概叫这个），取消勾选`Only Show Current Language`，右侧选择`Pinyin`点击`<`添加进去。右上角有个键盘可以切换输入法。终于搞定了！
+8. 在你的应用（左下角九个点打开）有三只企鹅，打开 Fcitx 5 configuration，取消勾选`Only Show Current Language`，右侧选择`Pinyin`点击`<`添加进去。右上角有个键盘可以切换输入法。终于搞定了！
 </Steps>
+
+:::tip[如何让 fcitx5 用起来和搜狗一样爽]
+1. 给它安装一个皮肤，我参考了[这篇教程](https://github.com/thep0y/fcitx5-themes-candlelight)
+2. 这时你的输入切换需要同时按住`ctrl+shift`很不方便，请在 Fxitx 5 configuration 的 Global Option 里面修改 Trigger input Method 为 `Shift`。
+3. 注意有个快捷按键是`Toggle embedded preedit`,你可以使用他写的`ctrl+alt+p`改为预编辑模式（因为在搜索框使用单行编辑模式会遮住）。
+4. 同样在 configure 里面 `Addons` 里面找到 `Pinyin` 齿轮进去可以修改 `Previous candidate` 和 `Next candidate` 快捷键。
+:::
 
 ## 常用软件安装
 
 ### 安装 Clash
 
 :::tip[参考资料]
-这篇我写的[Linux ( Ubuntu ) 系统装clash](https://zhuanlan.zhihu.com/p/692414049)不错！
+这篇我写的[Linux ( Ubuntu ) 系统装clash](https://zhuanlan.zhihu.com/p/2852384493)不错！
 :::
- 
+
+下面是简略版，详细看上面链接。
+
+1. 根据自己 Linux 系统的版本来确定安装的命令。
+   ```cmd
+   uname -a
+   ```
+   如果输出包含 x86_64 使用下面命令安装: 
+   ```cmd
+   wget https://github.com/clashdownload/Clash_for_Windows/releases/download/0.20.39/Clash.for.Windows-0.20.39-x64-linux.tar.gz
+   ```
+   如果输出包含 aarch64 使用下面命令安装: 
+   ```cmd
+   wget https://github.com/clashdownload/Clash_for_Windows/releases/download/0.20.39/Clash.for.Windows-0.20.39-arm64-linux.tar.gz
+   ```
+2. 找到它，解压，打开文件夹，双击 cfw 文件即可运行 clash ，使用方法和你在 Windows 一样。
+3. 别忘了，在右上角网络配置选择手动，如图所示。
+
+   ![s400](../../../../assets/images/2ysyx18.png)
+   
 ### 安装 VSCode
+
+1. 到[VScode](https://code.visualstudio.com/)官网下载`.deb`
+2. 到下载文件的地方右键，选择打开方式为软件安装，在弹出的窗口快速按下`install`并输入密码。
+3. 不妨顺便设置一下 VScode 的自动保存，点击左下角齿轮，搜索`auto save`，选择`after delay`，相当于实时保存。
+
+### 安装 Terminator 终端
+
+```cmd
+sudo apt install terminator
+```
+
+这是一个更好用的终端
+
+- `ctrl+shift+o`上下分窗口
+- `ctrl+shift+e`左右分窗口
+- `ctrl+shift+w`关闭当前窗口
+- `Alt`+上下左右来切换窗口
+
+详细快捷键，右键选择`Preferences`里面查看。
+
+### 安装 npm、node、pnpm
+
+大部分教程`sudo apt install npm`会导致下载的版本是老的，请参考[这篇文章](https://github.com/nodesource/distributions)安装最新的npm和node。
+
+```cmd
+sudo apt-get install -y curl
+curl -fsSL https://deb.nodesource.com/setup_23.x -o nodesource_setup.sh
+sudo -E bash nodesource_setup.sh
+sudo apt-get install -y nodejs
+```
+
+验证安装版本：
+```cmd
+node -v 
+npm -v
+```
+
+pnpm 安装：
+```cmd
+sudo npm install -g pnpm
+```
+
+:::caution[使用pnpm安装sharp库失败]
+更改 sharp 库的源：
+```cmd
+pnpm config set sharp_binary_host=https://npmmirror.com/mirrors/sharp
+pnpm config set sharp_libvips_binary_host=https://npmmirror.com/mirrors/sharp-libvips
+pnpm install
+```
+:::
 
 ## 双系统下 Ubutnu 分区扩容
 
@@ -365,6 +448,158 @@ Ubuntu 安装 fcitx5 : https://zhuanlan.zhihu.com/p/508797663
 :::tip[参考资料]
 [双系统 Ubuntu 分区扩容](https://blog.csdn.net/indrrra/article/details/136206465)
 :::
+
+## PA0
+
+### Installing tools
+
+```cmd
+su -
+```
+
+:::danger[su: Authentication failure]
+```cmd
+sudo passwd root
+```
+输入自己 Ubuntu 用户密码，然后再设置 root 密码，为了方便我设置为和用户密码相同。
+
+这时不需要做下面一步`adduser username sudo`了，已经同时把你的用户添加进`sudo`了。
+:::
+ 
+### Configuring vim
+
+:::tip[Vim 基本使用]
+现在的 Vim 没有那么垃圾只能依靠`hjkl`来上下左右，你可以直接用上下左右来移动光标，基本掌握以下操作就够了：
+
+`i`进入编辑模式，`esc`退出编辑模式，`:wq`保存并退出，`:q!`不保存直接退出（`!`表示强制写入或退出）。
+
+一生一芯提供的教程当中推荐使用[OpenVim](http://www.openvim.com/)
+:::
+
+#### 合并格式的diff
+
+我们来看一个例子，修改前的文档如下所示：
+```txt
+The Way that can be told of is not the eternal Way;
+The name that can be named is not the eternal name.
+The Nameless is the origin of Heaven and Earth;
+The Named is the mother of all things.
+Therefore let there always be non-being,
+  so we may see their subtlety,
+And let there always be being,
+  so we may see their outcome.
+The two are the same,
+But after they are produced,
+  they have different names.
+```
+
+修改后的文档如下所示：
+```txt
+The Nameless is the origin of Heaven and Earth;
+The named is the mother of all things.
+
+Therefore let there always be non-being,
+  so we may see their subtlety,
+And let there always be being,
+  so we may see their outcome.
+The two are the same,
+But after they are produced,
+  they have different names.
+They both may be called deep and profound.
+Deeper and more profound,
+The door of all subtleties!
+```
+
+修改前文本前七行和修改后文本前六行有较高相似度（这也是为什么 Unified diff 被创造出的原因）所以用`@@ -1,7 +1,6 @@`表示**修改修改前文本从1开始的连续7行为修改后文本从第1行开始的连续6行**。
+
+下面每一行开头有`-`表示删除的，`+`表示添加的行，其他的不变。
+
+于是完整的 Unified diff 写成如下形式：
+
+```diff
+--- lao	2002-02-21 23:30:39.942229878 -0800
++++ tzu	2002-02-21 23:30:50.442260588 -0800
+@@ -1,7 +1,6 @@
+-The Way that can be told of is not the eternal Way;
+-The name that can be named is not the eternal name.
+ The Nameless is the origin of Heaven and Earth;
+-The Named is the mother of all things.
++The named is the mother of all things.
++
+ Therefore let there always be non-being,
+   so we may see their subtlety,
+ And let there always be being,
+@@ -9,3 +8,6 @@
+ The two are the same,
+ But after they are produced,
+   they have different names.
++They both may be called deep and profound.
++Deeper and more profound,
++The door of all subtleties!
+```
+其中第一行表示修改前的文件，开头用`---`表示;第二行表示修改后的文件，开头用`+++`表示。
+
+:::note[diff 的使用方法]
+```cmd
+$ diff [-bBi] from-file to-file
+选项与参数：
+from-file ：原始比对的文件名；
+to-file   ：目标比对的文件名；
+
+-b  ：忽略一行当中，仅有多个空白的差异，例如 "about me" 與 "about     me" 視為相同
+-B  ：忽略空白行的差异。
+-i  ：忽略大小写的不同。
+```
+:::
+
+所以这里表示取消`"syntax on`前面的`"`。
+
+修改完成之后别忘记写入`：wq!`。
+
+### More Exploration
+
+:::note[为什么 cd 没有 man]
+cd 不是程序，它只是 shell 中的一个命令，所以没有 man 页面。
+:::
+
+#### 正则表达式
+
+[正则表达式学习](https://linux.vbird.org/linux_basic/centos7/0330regularex.php)
+
+结合以上教程，你很容易明白以下常用的正则表达式及含义：
+
+| 符号 | 含义 |
+| --- | --- |
+| `.` | 匹配任意字符 |
+| `*` | 匹配零个或多个字符，例如 `o*` 表示 0-n 个 o |
+| `\{n1,n2\}` | 匹配 n1 到 n2 个字符 ，例如 `a\{3,5\}` 表示有连续的 3-5 个 a |
+| `[abc]` | 匹配 a、b、c 任意一个字符 |
+| `[^abc]` | 匹配除了 a、b、c 以外的任意字符 |
+| `^` | 匹配字符串的开头 |
+| `$` | 表示字符串末尾，`.h$` 表示以.h 结尾的文件 |
+| `[n1-n2]` | 匹配 n1-n2 范围内的任意字符，必须 ASCII 当中连续，例如 `[A-Z]` 表示所有大写字母 |
+| `\` | 转义字符，用于匹配一些特殊字符，例如 '\.' 表示匹配点号 |
+
+尝试打印自己的 IP 地址：
+
+```cmd   
+ifconfig | grep -n '^.*inet ' | sed 's/^.*inet //g' | sed 's/ net.*$//g'
+```
+
+扩展的正则表达式符号：
+
+| 符号 | 含义 |
+| --- | --- |
+| `\|` | 用或（ or ）的方式找出数个字符串 |
+| `()` | 括号内的表达式会作为一个整体被匹配，如 egrep -n 'g(la\|oo)d' 找 glad 或 good|
+| `+` | 匹配前面的字符 1 次或多次 |
+| `?` | 匹配前面的字符 0 次或 1 次 |
+| `()+` | 多个重复组的判别，如 egrep 'A(xyz)+C' 找开头为A结尾为C，中间有一个以上xyz的字符串 |
+
+:::note[常用命令讲解]
+单独再写一篇[常用命令](../comcom)
+:::
+
 
 <LinkCard title="项目首页" description="一生一芯跟学笔记" href="../ysyx" />
 <CardGrid>

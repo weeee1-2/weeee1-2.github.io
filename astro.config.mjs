@@ -14,6 +14,9 @@ export default defineConfig({
   integrations: [starlight({
     plugins: [starlightImageZoom()],
     title: '🦄&🐟',
+    tableOfContents: { minHeadingLevel: 2,
+       maxHeadingLevel: 4
+       },
     locales: {
       root: {
         label: '简体中文',

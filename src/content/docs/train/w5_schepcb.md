@@ -1,5 +1,6 @@
 ---
 title: W5 原理图、PCB绘制通识
+lastUpdated: 2024-10-07
 ---
 
 <center class="aspect-ratio" >
