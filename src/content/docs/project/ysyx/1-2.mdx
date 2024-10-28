@@ -353,6 +353,7 @@ Ubuntu 安装 fcitx5 : https://zhuanlan.zhihu.com/p/508797663
    ![s400](../../../../assets/images/2ysyx17.png)
 
 8. 在你的应用（左下角九个点打开）有三只企鹅，打开 Fcitx 5 configuration，取消勾选`Only Show Current Language`，右侧选择`Pinyin`点击`<`添加进去。右上角有个键盘可以切换输入法。终于搞定了！
+8. 在你的应用（左下角九个点打开）有三只企鹅，打开 Fcitx 5 configuration，取消勾选`Only Show Current Language`，右侧选择`Pinyin`点击`<`添加进去。右上角有个键盘可以切换输入法。终于搞定了！
 </Steps>
 
 :::tip[如何让 fcitx5 用起来和搜狗一样爽]
@@ -367,6 +368,7 @@ Ubuntu 安装 fcitx5 : https://zhuanlan.zhihu.com/p/508797663
 ### 安装 Clash
 
 :::tip[参考资料]
+这篇我写的[Linux ( Ubuntu ) 系统装clash](https://zhuanlan.zhihu.com/p/2852384493)不错！
 这篇我写的[Linux ( Ubuntu ) 系统装clash](https://zhuanlan.zhihu.com/p/2852384493)不错！
 :::
 
@@ -389,7 +391,77 @@ Ubuntu 安装 fcitx5 : https://zhuanlan.zhihu.com/p/508797663
 
    ![s400](../../../../assets/images/2ysyx18.png)
    
+
+下面是简略版，详细看上面链接。
+
+1. 根据自己 Linux 系统的版本来确定安装的命令。
+   ```cmd
+   uname -a
+   ```
+   如果输出包含 x86_64 使用下面命令安装: 
+   ```cmd
+   wget https://github.com/clashdownload/Clash_for_Windows/releases/download/0.20.39/Clash.for.Windows-0.20.39-x64-linux.tar.gz
+   ```
+   如果输出包含 aarch64 使用下面命令安装: 
+   ```cmd
+   wget https://github.com/clashdownload/Clash_for_Windows/releases/download/0.20.39/Clash.for.Windows-0.20.39-arm64-linux.tar.gz
+   ```
+2. 找到它，解压，打开文件夹，双击 cfw 文件即可运行 clash ，使用方法和你在 Windows 一样。
+3. 别忘了，在右上角网络配置选择手动，如图所示。
+
+   ![s400](../../../../assets/images/2ysyx18.png)
+   
 ### 安装 VSCode
+
+1. 到[VScode](https://code.visualstudio.com/)官网下载`.deb`
+2. 到下载文件的地方右键，选择打开方式为软件安装，在弹出的窗口快速按下`install`并输入密码。
+3. 不妨顺便设置一下 VScode 的自动保存，点击左下角齿轮，搜索`auto save`，选择`after delay`，相当于实时保存。
+
+### 安装 Terminator 终端
+
+```cmd
+sudo apt install terminator
+```
+
+这是一个更好用的终端
+
+- `ctrl+shift+o`上下分窗口
+- `ctrl+shift+e`左右分窗口
+- `ctrl+shift+w`关闭当前窗口
+- `Alt`+上下左右来切换窗口
+
+详细快捷键，右键选择`Preferences`里面查看。
+
+### 安装 npm、node、pnpm
+
+大部分教程`sudo apt install npm`会导致下载的版本是老的，请参考[这篇文章](https://github.com/nodesource/distributions)安装最新的npm和node。
+
+```cmd
+sudo apt-get install -y curl
+curl -fsSL https://deb.nodesource.com/setup_23.x -o nodesource_setup.sh
+sudo -E bash nodesource_setup.sh
+sudo apt-get install -y nodejs
+```
+
+验证安装版本：
+```cmd
+node -v 
+npm -v
+```
+
+pnpm 安装：
+```cmd
+sudo npm install -g pnpm
+```
+
+:::caution[使用pnpm安装sharp库失败]
+更改 sharp 库的源：
+```cmd
+pnpm config set sharp_binary_host=https://npmmirror.com/mirrors/sharp
+pnpm config set sharp_libvips_binary_host=https://npmmirror.com/mirrors/sharp-libvips
+pnpm install
+```
+:::
 
 1. 到[VScode](https://code.visualstudio.com/)官网下载`.deb`
 2. 到下载文件的地方右键，选择打开方式为软件安装，在弹出的窗口快速按下`install`并输入密码。
