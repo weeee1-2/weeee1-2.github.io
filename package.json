@@ -16,7 +16,6 @@
     "@astrojs/starlight": "^0.28.4",
     "@astrojs/starlight-tailwind": "^2.0.3",
     "@astrojs/tailwind": "^5.1.0",
-    "@lorenzo_lewis/starlight-utils": "^0.2.0",
     "astro": "^4.16.7",
     "hastscript": "^9.0.0",
     "micromark-util-symbol": "^2.0.0",
