@@ -1,6 +1,7 @@
 ---
 title: 从非门到俄罗斯方块
 description: 自己构建一台计算机。
+lastUpdated: 2024-10-20
 ---
 
 :::note[项目介绍]

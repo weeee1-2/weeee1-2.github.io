@@ -3,6 +3,8 @@ import starlight from '@astrojs/starlight';
 import starlightImageZoom from 'starlight-image-zoom';
 import remarkMath from "remark-math";
 import rehypeMathjax from 'rehype-mathjax';
+import starlightBlog from 'starlight-blog'
+import starlightUtils from "@lorenzo_lewis/starlight-utils";
 
 import tailwind from "@astrojs/tailwind";
 
@@ -12,7 +14,16 @@ export default defineConfig({
   base: "/",
 
   integrations: [starlight({
-    plugins: [starlightImageZoom()],
+    plugins: [starlightBlog({
+      title: "博客",
+      postCount: 5,
+      recentPostCount: 10,
+    }),starlightImageZoom(),
+    starlightUtils({
+      multiSidebar: true,
+      navLinks: {
+      leading: { useSidebarLabelled:  "leading"  } ,
+    }})],
     title: '🦄&🐟',
     tableOfContents: { minHeadingLevel: 2,
        maxHeadingLevel: 4
@@ -33,6 +44,7 @@ export default defineConfig({
 	],
     social: {
       github: 'https://github.com/maindraster/maindraster.github.io',
+      youtube: 'https://space.bilibili.com/3546706348084176'
     },
     sidebar: [{
       label: '开篇文档',
@@ -60,8 +72,13 @@ export default defineConfig({
         label: '2.一生一芯',
         slug: 'project/ysyx/ysyx'
       }]
+    },{
+      label: "leading",
+      items: [
+        { label: "教程", link: "./zero2hero" },
+      ],
+      
     }],
-    lastUpdated: true,
   }), 
   tailwind({
 	// 禁用默认的基础样式
