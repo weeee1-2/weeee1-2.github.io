@@ -47,6 +47,7 @@ export default defineConfig({
     },
     components: {
       Header: "./src/components/Myheader.astro",
+      MarkdownContent: "./src/components/MarkdownContent.astro",
     },
     sidebar: [{
       label: '开篇文档',
