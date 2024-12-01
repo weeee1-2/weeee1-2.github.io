@@ -1,6 +1,6 @@
 ---
 title: W9 从建模到仿真：URDF到Moveit
-lastUpdated: 2024-11-15
+lastUpdated: 2024-11-19
 ---
 import { Steps } from '@astrojs/starlight/components';
 
@@ -135,7 +135,7 @@ source install/setup.bash
 ```
 :::
 ```cmd
-ros2 run moveit_setup_assistant setup_assistant
+ros2 launch moveit_setup_assistant setup_assistant.launch.py
 ```
 
 具体流程可以看我的教程视频或参考[官方教程](https://moveit.picknik.ai/main/doc/examples/setup_assistant/setup_assistant_tutorial.html) 。在这里我们主要配置从上往下第 1、2、3、4、5、8、9、10、13、14 项。其中第13项这个邮箱可以乱填，但不能没有，后续会报错。
@@ -264,11 +264,11 @@ sudo apt install ros-humble-gazebo-*
 ```cmd
 sudo apt install ros-humble-teleop-twist-keyboard
 ```
-### 撰写 gazebo.launch.py 文件
+### 撰写启动 Gazebo 的.launch.py 文件
 
 原定计划是将同时运行 Gazebo 和 Moveit2 中配置的小车关节控制的节点，这样可以在仿真中开小车的同时还能控制机器臂。但是我不清楚是我的环境还是什么地方出现了问题，导致采用鱼香ROS大佬的代码，Gazebo开不起来，官方的代码也有问题。我将节点发布的那行注释掉了，拿来开小车肯定没有问题。
 
-具体代码的解释见视频，直接复制粘贴下面代码肯定是用不了的，有好几处需要自行修改。
+在`panda_description`文件夹下创建文件夹`launch`，新建文件名称为`gazebo_model.launch.py`，具体代码的解释见视频，直接复制粘贴下面代码肯定是用不了的，有好几处需要自行修改。
 
 ```python
 import os
@@ -284,7 +284,7 @@ import xacro
 
 def generate_launch_description():
     # this name has to match the robot name in the Xacro file
-    robotXacroName='mockup'
+    robotXacroName='car'
     # this is the name of our package, at the same time this is the name of the
     # folder that will be used to define the paths
     namePackage = 'moveit_resources_panda_description'
@@ -338,12 +338,12 @@ def generate_launch_description():
     # Launch MoveIt 2 (robot_state_publisher + move_group + RViz)
     move_group_launch = IncludeLaunchDescription(
         PythonLaunchDescriptionSource([
-            FindPackageShare('car_config'), '/launch/move_group.launch.py']),  # Replace with actual MoveIt package name
+            FindPackageShare('config'), '/launch/move_group.launch.py']),  # Replace with actual MoveIt package name
     )
 
     # Launch RViz with MoveIt 2 configuration
-    rviz_config_file = FindPackageShare('car_config')\
-        .find('car_config') + '/config/moveit.rviz'  # Replace with actual path
+    rviz_config_file = FindPackageShare('config')\
+        .find('config') + '/config/moveit.rviz'  # Replace with actual path
 
     rviz = Node(
         package='rviz2',
@@ -367,6 +367,15 @@ def generate_launch_description():
     launchDescriptionObject.add_action(move_group_launch)
     return launchDescriptionObject
 ```
+
+然后你需要在 Cmakelist 当中的 include 添加 launch 文件夹，形式如下：
+
+```cmake
+install(DIRECTORY meshes urdf launch DESTINATION share/${PROJECT_NAME})
+```
+
+如果你希望尝试我失败的 Rviz 控制 Gazebo 环境下的小车，你需要对`car.xacro`和`package.xml`修改，具体见文章最后的代码仓库。
+
 :::note[补充]
 上面代码的 Gazebo 启动相比国外、官方提供的代码还增加了 world 文件的导入，也就是仿真中的环境，事实上，我自己使用时没启动成功。
 
@@ -376,7 +385,7 @@ def generate_launch_description():
 ### 让我们开始开小车吧！
 
 ```cmd
-ros2 launch carbot_description gazebo.launch.py
+ros2 launch moveit_resources_panda_description gazebo_model.launch.py
 ```
 
 然后打开一个新的终端，输入：
@@ -387,5 +396,13 @@ ros2 run teleop_twist_keyboard teleop_twist_keyboard
 
 按下键盘上的方向键，小车就会开始运动。
 
+:::tip[代码仓库]
+[地址](https://github.com/maindraster/ros2_moveit_gazebo)
+尽管视频中多次生命，但还是还想再声明一下：
+1. 本仓库实现了小车在 Gazebo 环境下的运动、Moveit2 运动规划执行（Rviz），仅仅只需要按本文的`gazebo_model.launch.py`代码配置并运行即可
+2. 未能实现通过 Rviz 的窗口规划控制后，让 Gazebo 环境中的小车机械臂执行
+
+而本文开头 ROS1 的仓库没有 2 的问题。
+:::
 ---
 [^1]: 由于 ROS1 最后一个版本到2025年停止维护，因此原定基于 ROS1 的教程决定更改为基于 ROS2 ，同样使用的 Moveit 须改为 Moveit2 。
