@@ -53,16 +53,19 @@ export default defineConfig({
       label: '开篇文档',
       slug: 'zero2hero'
     },{
-      label: '万能工科生基础',
-      autogenerate: {
-          directory: 'train'
-        }
+      label: '万能工科生教程',
+      slug: 'train/tr_index'
     },{
       label: '电子电路设计篇',
       slug: 'electronics/index_ecd'
     },{
       label: '嵌入式开发篇',
-      slug: 'embed/index_emb'
+      items: [{
+        label: 'ESP32篇',
+        autogenerate: {
+          directory: 'embed/esp'
+        }
+      }]
     },{
       label: '人工智能篇',
       slug: 'ai/index_ai'

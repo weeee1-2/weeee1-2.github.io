@@ -7,6 +7,10 @@ tags:
 featured: true
 ---
 
+<center class="aspect-ratio" >
+<iframe src="//player.bilibili.com/player.html?isOutside=true&aid=113578581432240&bvid=BV1BG6FYKEx8&cid=27129413657&p=1" scrolling="no" border="0" frameborder="no" framespacing="0" allowfullscreen="true"></iframe>
+</center>
+
 人脉是关于人的学问，人是多变的，视角也是多元的，本视频谈人脉搭建仅为鄙人一孔之见，不足之处敬请指正。
 
 ## 人脉之道：匹配

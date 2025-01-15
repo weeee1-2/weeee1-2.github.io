@@ -5,6 +5,9 @@ tags:
     - 技术
 featured: true
 ---
+<center class="aspect-ratio" >
+<iframe src="//player.bilibili.com/player.html?isOutside=true&aid=113672349291297&bvid=BV1bTkFY4E2s&cid=27399749781&p=1" scrolling="no" border="0" frameborder="no" framespacing="0" allowfullscreen="true"></iframe>
+</center>
 
 这，是一篇极简AI对话指南。
 
