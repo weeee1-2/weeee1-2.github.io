@@ -34,11 +34,11 @@ export default defineConfig({
       }
     },
     customCss: [
+      './src/tailwind2.css',
     // 你的自定义 CSS 文件的相对路径
     './src/styles/root.css', 
 	  './src/styles/search.css', 
     './src/styles/iconfont.css', 
-	  './src/tailwind.css',
     './src/styles/picsize.css',
 	],
     social: {
@@ -85,7 +85,6 @@ export default defineConfig({
 	// 禁用默认的基础样式
 	applyBaseStyles: false,
   })],
-
   markdown: {
     // 应用于 .md 和 .mdx 文件
     smartypants: false,
