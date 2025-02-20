@@ -86,7 +86,7 @@ importers:
     devDependencies:
       daisyui:
         specifier: ^4.12.10
-        version: 4.12.23(postcss@8.5.2)
+        version: 4.12.23(postcss@8.4.41)
       prettier:
         specifier: ^3.3.3
         version: 3.5.1
@@ -4736,12 +4736,12 @@ snapshots:
       d3-transition: 3.0.1(d3-selection@3.0.0)
       d3-zoom: 3.0.0
 
-  daisyui@4.12.23(postcss@8.5.2):
+  daisyui@4.12.23(postcss@8.4.41):
     dependencies:
       css-selector-tokenizer: 0.8.0
       culori: 3.3.0
       picocolors: 1.1.1
-      postcss-js: 4.0.1(postcss@8.5.2)
+      postcss-js: 4.0.1(postcss@8.4.41)
     transitivePeerDependencies:
       - postcss
 
@@ -6210,11 +6210,6 @@ snapshots:
     dependencies:
       camelcase-css: 2.0.1
       postcss: 8.4.41
-
-  postcss-js@4.0.1(postcss@8.5.2):
-    dependencies:
-      camelcase-css: 2.0.1
-      postcss: 8.5.2
 
   postcss-load-config@4.0.2(postcss@8.4.41):
     dependencies:
