@@ -3,11 +3,12 @@
   "compilerOptions": {
     "baseUrl": ".",
     "paths": {
-      "@/*": ["src/*"]
+      "@/*": ["src/*"],
+      "../libs/*": ["src/libs/*"]
     },
     "jsx": "react-jsx",
     "jsxImportSource": "react"
   },
   "include": ["src/**/*.ts", "src/**/*.tsx", "src/**/*.astro"],
-  "exclude": ["node_modules"]
+  "exclude": ["node_modules", "src/libs"]
 }
