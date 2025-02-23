@@ -1,8 +1,5 @@
 /** @type {import('tailwindcss').Config} */
 import starlightPlugin from '@astrojs/starlight-tailwind';
-import defaults from './tailwind.config.mjs';
-import daisyui from "daisyui";
-import scrollbar from "tailwind-scrollbar";
 
 const accent = { 200: '#feb3a6', 600: '#c90e00', 900: '#640300', 950: '#460b05' };
 const gray = { 100: '#f9f5f5', 200: '#f3ecea', 300: '#c8c0be', 400: '#978784', 500: '#635451', 700: '#423432', 800: '#302321', 900: '#1d1715' };

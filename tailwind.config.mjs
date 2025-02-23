@@ -1,5 +1,4 @@
 /** @type {import('tailwindcss').Config} */
-import starlightPlugin from '@astrojs/starlight-tailwind';
 import daisyui from "daisyui";
 import scrollbar from "tailwind-scrollbar";
 

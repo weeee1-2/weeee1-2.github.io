@@ -20,16 +20,16 @@ const links: Array<Link> = [
     links.map((link) => (
       <a
         class="link-no-deco hover:scale-110 flex flex-row items-center gap-1 hover:border-b-4 border-tc-primary transition-all "
-        style="text-decoration: none;"
+        //style="text-decoration: none;"
         href={link.href}
         data-astro-prefetch="load"
       >
-        <p class="font-bold text-lg max-lg:text-xs max-md:text-xs ">
+        <p class="font-bold text-lg max-lg:text-xs text-red-400 max-md:text-xs hover:text-rose-400 ">
           {link.name}
         </p>
         {link.icon && (
           <Icon
-            class="w-5 h-5 max-md:hidden max-lg:hidden text-[var(--sl-color-gray-2)]"
+            class="w-5 h-5 max-md:hidden max-lg:hidden text-[var(--sl-color-gray-2)] "
             name={link.icon}
           />
         )}
