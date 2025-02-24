@@ -7,7 +7,7 @@ import starlightBlog from 'starlight-blog'
 import starlightGiscus from 'starlight-giscus'
 
 import tailwind from "@astrojs/tailwind";
-import netlify from '@astrojs/netlify/edge-functions';
+import netlify from '@astrojs/netlify';
 
 // https://astro.build/config
 export default defineConfig({
@@ -23,8 +23,8 @@ export default defineConfig({
       starlightGiscus({
         repo: 'maindraster/docgiscus',
         repoId: 'R_kgDON-oOVQ',
-        category: 'Q&A',
-        categoryId: 'DIC_kwDON-oOVc4CnRog',
+        category:'Announcements',
+        categoryId:'DIC_kwDON-oOVc4CnRoe',
         theme:'catppuccin_latte',
         lazy: true
     }),
@@ -109,7 +109,7 @@ export default defineConfig({
     remarkRehype: { footnoteLabel: '参考', footnoteBackLabel: '返回正文' },
   },
   output: 'server',
-  adapter: netlify()
+  adapter: netlify({    edgeMiddleware: true})
 });
 
 // <script src="https://giscus.app/client.js"
