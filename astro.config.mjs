@@ -25,7 +25,7 @@ export default defineConfig({
         repo: 'maindraster/docgiscus',
         repoId: 'R_kgDON-oOVQ',
         category: 'Q&A',
-        categoryId: 'DIC_kwDON-oOVc4CnRoe',
+        categoryId: 'DIC_kwDON-oOVc4CnRog',
         theme:'catppuccin_latte',
         lazy: true
     }),
@@ -33,11 +33,6 @@ export default defineConfig({
       title: "博客",
       postCount: 5,
       recentPostCount: 10,
-      blog: {
-        dir: 'src/content/blog',
-        // 确保路由模式正确
-        routePattern: '/blog/[...slug]'
-      }
     }),starlightImageZoom(),
     // starlightUtils({
     //   navLinks: {
