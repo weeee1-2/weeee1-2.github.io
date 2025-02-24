@@ -1,4 +1,4 @@
-import { defineConfig } from 'astro/config';
+import { defineConfig,passthroughImageService } from 'astro/config';
 import starlight from '@astrojs/starlight';
 import starlightImageZoom from 'starlight-image-zoom';
 import remarkMath from "remark-math";
@@ -12,7 +12,9 @@ import tailwind from "@astrojs/tailwind";
 export default defineConfig({
   site: 'https://maindraster.netlify.app',
   base: "/",
-
+  image: {
+    service: passthroughImageService()
+  },
   integrations: [starlight({
     plugins: [
       starlightGiscus({
@@ -50,7 +52,6 @@ export default defineConfig({
     customCss: [
     './src/tailwind2.css',
     // 你的自定义 CSS 文件的相对路径
-    './src/styles/giscus.css',
     './src/styles/root.css', 
 	  './src/styles/search.css', 
     './src/styles/iconfont.css', 
