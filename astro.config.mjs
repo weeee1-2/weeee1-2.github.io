@@ -7,8 +7,7 @@ import starlightBlog from 'starlight-blog'
 import starlightGiscus from 'starlight-giscus'
 
 import tailwind from "@astrojs/tailwind";
-
-import netlify from '@astrojs/netlify';
+import netlify from '@astrojs/netlify/edge-functions';
 
 // https://astro.build/config
 export default defineConfig({
