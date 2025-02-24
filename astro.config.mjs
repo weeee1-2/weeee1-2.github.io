@@ -8,21 +8,26 @@ import starlightGiscus from 'starlight-giscus'
 
 import tailwind from "@astrojs/tailwind";
 
+import netlify from '@astrojs/netlify';
+
 // https://astro.build/config
 export default defineConfig({
   site: 'https://maindraster.netlify.app',
   base: "/",
+
   image: {
     service: passthroughImageService()
   },
+
   integrations: [starlight({
     plugins: [
       starlightGiscus({
         repo: 'maindraster/docgiscus',
         repoId: 'R_kgDON-oOVQ',
-        category: 'Announcement',
+        category: 'Q&A',
         categoryId: 'DIC_kwDON-oOVc4CnRoe',
-        theme:'catppuccin_latte'
+        theme:'catppuccin_latte',
+        lazy: true
     }),
       starlightBlog({
       title: "博客",
@@ -53,10 +58,10 @@ export default defineConfig({
     './src/tailwind2.css',
     // 你的自定义 CSS 文件的相对路径
     './src/styles/root.css', 
-	  './src/styles/search.css', 
+      './src/styles/search.css', 
     './src/styles/iconfont.css', 
     './src/styles/picsize.css',
-	],
+    ],
     social: {
       github: 'https://github.com/maindraster/maindraster.github.io',
       youtube: 'https://space.bilibili.com/3546706348084176'
@@ -98,16 +103,19 @@ export default defineConfig({
     ],
   }), 
   tailwind({
-	// 禁用默认的基础样式
-	applyBaseStyles: false,
+    // 禁用默认的基础样式
+    applyBaseStyles: false,
   })],
+
   markdown: {
     // 应用于 .md 和 .mdx 文件
     smartypants: false,
     remarkPlugins: [remarkMath],
     rehypePlugins: [ rehypeMathjax],
     remarkRehype: { footnoteLabel: '参考', footnoteBackLabel: '返回正文' },
-  }
+  },
+  output: 'server',
+  adapter: netlify()
 });
 
 // <script src="https://giscus.app/client.js"
