@@ -4,19 +4,33 @@ import starlightImageZoom from 'starlight-image-zoom';
 import remarkMath from "remark-math";
 import rehypeMathjax from 'rehype-mathjax';
 import starlightBlog from 'starlight-blog'
+import starlightGiscus from 'starlight-giscus'
 
 import tailwind from "@astrojs/tailwind";
 
 // https://astro.build/config
 export default defineConfig({
-  site: 'https://maindraster.github.io',
+  site: 'https://maindraster.netlify.app',
   base: "/",
 
   integrations: [starlight({
-    plugins: [starlightBlog({
+    plugins: [
+      starlightGiscus({
+        repo: 'maindraster/docgiscus',
+        repoId: 'R_kgDON-oOVQ',
+        category: 'Announcement',
+        categoryId: 'DIC_kwDON-oOVc4CnRoe',
+        theme:'catppuccin_latte'
+    }),
+      starlightBlog({
       title: "博客",
       postCount: 5,
       recentPostCount: 10,
+      blog: {
+        dir: 'src/content/blog',
+        // 确保路由模式正确
+        routePattern: '/blog/[...slug]'
+      }
     }),starlightImageZoom(),
     // starlightUtils({
     //   navLinks: {
@@ -34,8 +48,9 @@ export default defineConfig({
       }
     },
     customCss: [
-      './src/tailwind2.css',
+    './src/tailwind2.css',
     // 你的自定义 CSS 文件的相对路径
+    './src/styles/giscus.css',
     './src/styles/root.css', 
 	  './src/styles/search.css', 
     './src/styles/iconfont.css', 
@@ -93,3 +108,19 @@ export default defineConfig({
     remarkRehype: { footnoteLabel: '参考', footnoteBackLabel: '返回正文' },
   }
 });
+
+// <script src="https://giscus.app/client.js"
+//         data-repo="maindraster/docgiscus"
+//         data-repo-id="R_kgDON-oOVQ"
+//         data-category="Announcements"
+//         data-category-id="DIC_kwDON-oOVc4CnRoe"
+//         data-mapping="title"
+//         data-strict="0"
+//         data-reactions-enabled="1"
+//         data-emit-metadata="0"
+//         data-input-position="bottom"
+//         data-theme="light_tritanopia"
+//         data-lang="zh-CN"
+//         crossorigin="anonymous"
+//         async>
+// </script>
