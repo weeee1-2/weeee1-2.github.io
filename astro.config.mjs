@@ -112,18 +112,3 @@ export default defineConfig({
   adapter: vercel()
 });
 
-// <script src="https://giscus.app/client.js"
-//         data-repo="maindraster/docgiscus"
-//         data-repo-id="R_kgDON-oOVQ"
-//         data-category="Announcements"
-//         data-category-id="DIC_kwDON-oOVc4CnRoe"
-//         data-mapping="title"
-//         data-strict="0"
-//         data-reactions-enabled="1"
-//         data-emit-metadata="0"
-//         data-input-position="bottom"
-//         data-theme="light_tritanopia"
-//         data-lang="zh-CN"
-//         crossorigin="anonymous"
-//         async>
-// </script>
