@@ -28,15 +28,16 @@ export default defineConfig({
         theme:'catppuccin_latte',
         lazy: true
     }),
-      starlightBlog({
-      title: "博客",
-      postCount: 5,
-      recentPostCount: 10,
-    }),starlightImageZoom(),
+    starlightImageZoom(),
     // starlightUtils({
     //   navLinks: {
     //   leading: { useSidebarLabelled:  "leading"  } ,
     // }})
+    starlightBlog({
+      title: "博客",
+      postCount: 5,
+      recentPostCount: 10,
+    }),
     ],
     title: '🦄&🐟',
     tableOfContents: { minHeadingLevel: 2,
@@ -68,32 +69,62 @@ export default defineConfig({
       label: '开篇文档',
       slug: 'zero2hero'
     },{
-      label: '万能工科生教程',
-      slug: 'train/tr_index'
-    },{
-      label: '电子电路设计篇',
-      slug: 'electronics/index_ecd'
-    },{
-      label: '嵌入式开发篇',
+      label: '万工教程',
+      collapsed: true,
       items: [{
-        label: 'ESP32篇',
-        autogenerate: {
-          directory: 'embed/esp'
-        }
-      }]
-    },{
-      label: '人工智能篇',
-      slug: 'ai/index_ai'
-    },{
-      label: '项目实战篇',
-      items: [{
-        label: '1.从非门到俄罗斯方块',
-        slug: 'project/nand2tetris/nand2tetris'
+        label: '首页',
+        slug: 'train/tr_index'
       },{
-        label: '2.一生一芯',
-        slug: 'project/ysyx/ysyx'
-      }]
+        label: '基础教程',
+        autogenerate: {
+          directory: 'train'
+        }
+      },{
+        label: '理论科普',
+        autogenerate: {
+          directory: 'train_ll'
+        }
+      },{
+        label: '初级教程',
+        autogenerate: {
+          directory: 'train_cj'
+        }
+      },
+     ],
     },
+    {
+      label: '篇章学习',
+      collapsed: true,
+      items: [{
+        label: '电子电路设计篇',
+        slug: 'electronics/index_ecd'
+      },{
+        label: '嵌入式开发篇',
+        collapsed: true,
+        items: [{
+          label: 'ESP32篇',
+          collapsed: true,
+          autogenerate: {
+            directory: 'embed/esp'
+          }
+        }]
+      },{
+        label: '机器人篇',
+        collapsed: true,
+        items: [{
+          label: '建模与控制',
+          autogenerate: {
+            directory: 'robot/jmkz'
+          }
+        }]
+      },{
+        label: '人工智能篇',
+        slug: 'ai/index_ai'
+      },{
+        label: '项目实战篇',
+        slug: 'project/index_pro'
+      },],
+    }
     ],
   }), 
   tailwind({

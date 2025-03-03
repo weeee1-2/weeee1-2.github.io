@@ -1,7 +1,6 @@
 ---
 title: 人脉网络搭建
 date: 2024-12-01
-excerpt: 本
 tags: 
     - 个人成长
 featured: true
