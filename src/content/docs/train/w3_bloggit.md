@@ -82,7 +82,7 @@ ssh-keygen -t rsa -C "three@github.com"
 
 ![创建钥匙](../../../assets/images/66.png)
 
-为了管理多个 github 账户需要这么做，你需要一个 config 文件。可以右键新建txt文件而后更改名称。在里面对刚刚新建的秘钥进行配置（注意保存）。
+为了管理多个 github 账户需要这么做，你需要一个 config 文件。可以右键新建txt文件而后更改名称（不是txt文件，后缀也要删掉，全称就叫config）。在里面对刚刚新建的秘钥进行配置（注意保存）。
 
 ```sh
 Host three.github.com
@@ -105,6 +105,10 @@ ssh -T git@three.github.com
 ```
 
 ![秘钥链接](../../../assets/images/68.png)
+
+:::danger[报错解决：ssh:could not resolve hostname]
+挂t子的时候，注意不要设定修改ip地址
+:::
 
 ### 4. 基本操作
 
