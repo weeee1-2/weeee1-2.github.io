@@ -11,7 +11,7 @@ import vercel from '@astrojs/vercel';
 
 // https://astro.build/config
 export default defineConfig({
-  site: 'https://maindraster.netlify.app',
+  site: 'https://weeee1-2.github.io',
   base: "/",
 
   image: {
